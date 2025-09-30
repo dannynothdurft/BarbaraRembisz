@@ -1,23 +1,22 @@
 'use client'
-
 import { useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const galleryImages = [
   {
-    before: '/dirty-car-interior.png',
-    after: '/clean-car-interior.png',
+    before: '/images/dirty-car-interior.png',
+    after: '/images/clean-car-interior.png',
     title: 'Innenraumreinigung',
   },
   {
-    before: '/scratched-car-paint.png',
-    after: '/shiny-polished-car-paint-after-detailing.jpg',
+    before: '/images/scratched-car-paint.png',
+    after: '/images/shiny-polished-car-paint-after-detailing.jpg',
     title: 'Lackaufbereitung',
   },
   {
-    before: '/dull-car-exterior-before-ceramic-coating.jpg',
-    after: '/glossy-car-with-ceramic-coating-shine.jpg',
+    before: '/images/dull-car-exterior-before-ceramic-coating.jpg',
+    after: '/images/glossy-car-with-ceramic-coating-shine.jpg',
     title: 'Keramikversiegelung',
   },
 ]

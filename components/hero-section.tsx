@@ -7,7 +7,7 @@ export function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/professional-car-detailing-shiny-clean-luxury-car.jpg"
+          src="/images/professional-car-detailing-shiny-clean-luxury-car.jpg"
           alt="Professionell gereinigtes Auto"
           className="w-full h-full object-cover"
         />
