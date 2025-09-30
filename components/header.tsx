@@ -1,9 +1,9 @@
-"use client"
+'use client'
 
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
-import { useState } from "react"
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { Menu, X } from 'lucide-react'
+import { useState } from 'react'
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -15,28 +15,36 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <div className="flex items-center">
-              <span className="text-xl font-bold text-primary">Barbara Rembisz</span>
+              <span className="text-xl font-bold text-primary">
+                Barbara Rembisz
+              </span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            <Link
+              href="/"
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
               Startseite
             </Link>
             <Link
-              href="#leistungen"
+              href="/#leistungen"
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
               Leistungen
             </Link>
             <Link
-              href="#kundenstimmen"
+              href="/#kundenstimmen"
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
               Kundenstimmen
             </Link>
-            <Link href="#kontakt" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            <Link
+              href="/#kontakt"
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
               Kontakt
             </Link>
             <Link href="/terminbuchung">
@@ -45,8 +53,16 @@ export function Header() {
           </nav>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle menu">
-            {mobileMenuOpen ? <X className="h-6 w-6 text-foreground" /> : <Menu className="h-6 w-6 text-foreground" />}
+          <button
+            className="md:hidden"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6 text-foreground" />
+            ) : (
+              <Menu className="h-6 w-6 text-foreground" />
+            )}
           </button>
         </div>
 
@@ -81,8 +97,13 @@ export function Header() {
             >
               Kontakt
             </Link>
-            <Link href="/terminbuchung" onClick={() => setMobileMenuOpen(false)}>
-              <Button className="w-full rounded-full">Termin vereinbaren</Button>
+            <Link
+              href="/terminbuchung"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <Button className="w-full rounded-full">
+                Termin vereinbaren
+              </Button>
             </Link>
           </nav>
         )}

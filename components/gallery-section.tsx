@@ -1,24 +1,24 @@
-"use client"
+'use client'
 
-import { useState } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useState } from 'react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 
 const galleryImages = [
   {
-    before: "/dirty-car-interior.png",
-    after: "/clean-car-interior.png",
-    title: "Innenraumreinigung",
+    before: '/dirty-car-interior.png',
+    after: '/clean-car-interior.png',
+    title: 'Innenraumreinigung',
   },
   {
-    before: "/scratched-car-paint.png",
-    after: "/shiny-polished-car-paint-after-detailing.jpg",
-    title: "Lackaufbereitung",
+    before: '/scratched-car-paint.png',
+    after: '/shiny-polished-car-paint-after-detailing.jpg',
+    title: 'Lackaufbereitung',
   },
   {
-    before: "/dull-car-exterior-before-ceramic-coating.jpg",
-    after: "/glossy-car-with-ceramic-coating-shine.jpg",
-    title: "Keramikversiegelung",
+    before: '/dull-car-exterior-before-ceramic-coating.jpg',
+    after: '/glossy-car-with-ceramic-coating-shine.jpg',
+    title: 'Keramikversiegelung',
   },
 ]
 
@@ -30,15 +30,20 @@ export function GallerySection() {
   }
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length)
+    setCurrentIndex(
+      (prev) => (prev - 1 + galleryImages.length) % galleryImages.length,
+    )
   }
 
   return (
     <section className="py-16 md:py-24 bg-secondary">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4 text-balance">Vorher-Nachher</h2>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4 text-balance">
+          Vorher-Nachher
+        </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto text-pretty">
-          Sehen Sie selbst die beeindruckenden Ergebnisse unserer professionellen Autoaufbereitung
+          Sehen Sie selbst die beeindruckenden Ergebnisse unserer
+          professionellen Autoaufbereitung
         </p>
 
         <div className="relative max-w-5xl mx-auto">
@@ -49,7 +54,7 @@ export function GallerySection() {
                 Vorher
               </div>
               <img
-                src={galleryImages[currentIndex].before || "/placeholder.svg"}
+                src={galleryImages[currentIndex].before || '/placeholder.svg'}
                 alt={`${galleryImages[currentIndex].title} - Vorher`}
                 className="w-full h-[300px] md:h-[400px] object-cover rounded-lg"
               />
@@ -61,7 +66,7 @@ export function GallerySection() {
                 Nachher
               </div>
               <img
-                src={galleryImages[currentIndex].after || "/placeholder.svg"}
+                src={galleryImages[currentIndex].after || '/placeholder.svg'}
                 alt={`${galleryImages[currentIndex].title} - Nachher`}
                 className="w-full h-[300px] md:h-[400px] object-cover rounded-lg"
               />
@@ -69,7 +74,9 @@ export function GallerySection() {
           </div>
 
           <div className="text-center mt-6">
-            <h3 className="text-xl font-semibold">{galleryImages[currentIndex].title}</h3>
+            <h3 className="text-xl font-semibold">
+              {galleryImages[currentIndex].title}
+            </h3>
           </div>
 
           {/* Navigation Buttons */}
@@ -90,7 +97,7 @@ export function GallerySection() {
                   key={index}
                   onClick={() => setCurrentIndex(index)}
                   className={`w-2 h-2 rounded-full transition-all ${
-                    index === currentIndex ? "bg-primary w-8" : "bg-border"
+                    index === currentIndex ? 'bg-primary w-8' : 'bg-border'
                   }`}
                   aria-label={`Gehe zu Bild ${index + 1}`}
                 />

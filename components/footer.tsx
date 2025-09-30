@@ -1,5 +1,5 @@
-import Link from "next/link"
-import { Instagram, Facebook } from "lucide-react"
+import Link from 'next/link'
+import { Instagram, Facebook } from 'lucide-react'
 
 export function Footer() {
   return (
@@ -10,7 +10,8 @@ export function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Barbara Rembisz</h3>
             <p className="text-primary-foreground/80 text-sm">
-              Professionelle Autoaufbereitung in Hamburg – Ihr Partner für Glanz und Werterhalt.
+              Professionelle Autoaufbereitung in Hamburg – Ihr Partner für Glanz
+              und Werterhalt.
             </p>
           </div>
 
@@ -25,19 +26,19 @@ export function Footer() {
                 Startseite
               </Link>
               <Link
-                href="#leistungen"
+                href="/#leistungen"
                 className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors"
               >
                 Leistungen
               </Link>
               <Link
-                href="#kundenstimmen"
+                href="/#kundenstimmen"
                 className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors"
               >
                 Kundenstimmen
               </Link>
               <Link
-                href="#kontakt"
+                href="/#kontakt"
                 className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors"
               >
                 Kontakt
@@ -93,7 +94,8 @@ export function Footer() {
 
         <div className="border-t border-primary-foreground/20 pt-8 text-center">
           <p className="text-primary-foreground/60 text-sm">
-            © {new Date().getFullYear()} Barbara Rembisz Autoaufbereitung. Alle Rechte vorbehalten.
+            © {new Date().getFullYear()} Barbara Rembisz Autoaufbereitung. Alle
+            Rechte vorbehalten.
           </p>
         </div>
       </div>

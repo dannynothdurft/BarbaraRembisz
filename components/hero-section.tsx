@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 export function HeroSection() {
   return (
@@ -23,7 +23,11 @@ export function HeroSection() {
           Glanz, Sauberkeit und Werterhalt – mit Leidenschaft und Präzision.
         </p>
         <Link href="/terminbuchung">
-          <Button size="lg" variant="secondary" className="rounded-full text-lg px-8 py-6">
+          <Button
+            size="lg"
+            variant="secondary"
+            className="rounded-full text-lg px-8 py-6"
+          >
             Jetzt Termin vereinbaren
           </Button>
         </Link>
