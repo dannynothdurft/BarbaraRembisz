@@ -1,18 +1,12 @@
+import '@/styles/globals.css'
 import type React from 'react'
 import type { Metadata, Viewport } from 'next'
-import { Montserrat } from 'next/font/google'
+import { GeistSans } from 'geist/font/sans'
+import { GeistMono } from 'geist/font/mono'
 import { Analytics } from '@vercel/analytics/next'
 import { Suspense } from 'react'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-
-import './globals.css'
-
-const montserrat = Montserrat({
-  subsets: ['latin'],
-  variable: '--font-montserrat',
-  display: 'swap',
-})
 
 export const metadata: Metadata = {
   title: {
@@ -160,7 +154,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-  themeColor: '#155dfc',
+  themeColor: '#000000',
 }
 
 export default function RootLayout({
@@ -170,9 +164,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de">
-      <body className={`font-sans ${montserrat.variable} min-h-screen`}>
+      <body
+        className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased min-h-screen bg-black`}
+      >
         <Suspense fallback={<div>Loading...</div>}>
-          {' '}
           <Header />
           <main>{children} </main>
           <Footer />

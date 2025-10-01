@@ -3,9 +3,12 @@ import ImpressumPage from '@/components/pages/Impressum'
 
 export const metadata: Metadata = {
   title: 'Impressum',
-  description: 'Impressum von IconFY - Angaben gemäß § 5 TMG',
+  description:
+    'Impressum von Barbara Rembisz Autoaufbereitung - Angaben gemäß § 5 TMG',
 }
 
-export default function Impressum() {
+const Impressum = () => {
   return <ImpressumPage />
 }
+
+export default Impressum

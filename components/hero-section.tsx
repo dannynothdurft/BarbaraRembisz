@@ -1,36 +1,44 @@
-import { Button } from '@/components/ui/button'
+'use client'
+import React from 'react'
 import Link from 'next/link'
+import { Button } from '@/components/ui/button'
 
 export function HeroSection() {
   return (
-    <section className="relative h-[600px] md:h-[700px] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/images/professional-car-detailing-shiny-clean-luxury-car.jpg"
-          alt="Professionell gereinigtes Auto"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-primary/70" />
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage:
+            "url('/images/luxury-car-interior-dashboard-steering-wheel-dark-.jpg')",
+        }}
+      >
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/60" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 text-balance">
-          Ihre Autoaufbereitung in Hamburg
-        </h1>
-        <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-8 max-w-2xl mx-auto text-pretty">
-          Glanz, Sauberkeit und Werterhalt – mit Leidenschaft und Präzision.
-        </p>
-        <Link href="/terminbuchung">
-          <Button
-            size="lg"
-            variant="secondary"
-            className="rounded-full text-lg px-8 py-6"
+      <div className="relative z-10 container mx-auto px-4">
+        <div className="max-w-2xl">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight text-balance">
+            Holen Sie das Neuwagengefühl zurück mit unserer professionellen
+            Aufbereitung
+          </h1>
+          <Link
+            href={'/kontakt'}
+            className="bg-yellow-400 text-black hover:bg-yellow-500 font-semibold px-8 py-6 text-base rounded-full transition-all duration-300 hover:scale-105"
           >
-            Jetzt Termin vereinbaren
-          </Button>
-        </Link>
+            Termin vereinbaren
+          </Link>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
+          <div className="w-1.5 h-3 bg-white/50 rounded-full" />
+        </div>
       </div>
     </section>
   )

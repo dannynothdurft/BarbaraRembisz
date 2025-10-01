@@ -1,12 +1,14 @@
+import React from 'react'
 import { Metadata } from 'next'
 import DatenschutzPage from '@/components/pages/Datenschutz'
 
 export const metadata: Metadata = {
   title: 'Datenschutz',
-  description:
-    'Datenschutzerklärung von IconFY - Schutz Ihrer persönlichen Daten',
+  description: 'Datenschutz von Barbara Rembisz Autoaufbereitung',
 }
 
-export default function Datenschutz() {
+const DSGVOPage = () => {
   return <DatenschutzPage />
 }
+
+export default DSGVOPage
