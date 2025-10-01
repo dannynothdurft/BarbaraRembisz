@@ -186,6 +186,8 @@ export default function ImpressumPage() {
                   und benutzerfreundliche Lösungen für Unternehmen jeder Größe.
                 </p>
               </div>
+                <Link href={"https://www.devdanny.de"}>DevDanny.de</Link>
+
             </div>
           </div>
 
