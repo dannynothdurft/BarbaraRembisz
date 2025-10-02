@@ -93,7 +93,7 @@ export function WhyChooseUsSection() {
           {/* Right side - Image */}
           <div className="relative h-[600px] rounded-lg overflow-hidden">
             <Image
-              src="/images/luxury-car-being-professionally-detailed-polished-.jpg"
+              src="/images/bmw-02.jpg"
               alt="Professional car detailing quality"
               fill
               className="object-cover"

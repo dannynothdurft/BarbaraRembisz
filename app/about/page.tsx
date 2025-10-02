@@ -1,5 +1,3 @@
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
 import Link from 'next/link'
 import { CheckCircle2, Award, Users, Target } from 'lucide-react'
 import Image from 'next/image'
@@ -7,7 +5,6 @@ import Image from 'next/image'
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-black">
-      <Header />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 bg-gradient-to-b from-zinc-900 to-black">
@@ -81,7 +78,7 @@ export default function AboutPage() {
             </div>
             <div className="relative h-[500px] rounded-2xl overflow-hidden">
               <Image
-                src="/images/professional-car-detailing-service-luxury-vehicle-.jpg"
+                src="/images/roman-01.jpg"
                 alt="Professionelle Autoaufbereitung"
                 fill
                 className="object-cover"
@@ -138,7 +135,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <Footer />
     </div>
   )
 }

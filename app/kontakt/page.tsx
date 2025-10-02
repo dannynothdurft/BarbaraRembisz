@@ -1,5 +1,3 @@
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -8,7 +6,6 @@ import { MapPin, Phone, Mail, Clock } from 'lucide-react'
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-black">
-      <Header />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 bg-gradient-to-b from-zinc-900 to-black">
@@ -180,14 +177,13 @@ export default function ContactPage() {
 
               {/* Map Placeholder */}
               <div className="bg-zinc-900 rounded-2xl border border-white/10 overflow-hidden h-[300px] flex items-center justify-center">
-                <p className="text-gray-500">Karte wird hier angezeigt</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2370.915281950701!2d10.091933077308921!3d53.54142687234645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b18c467f8a6d31%3A0xa535daa83554059!2sAm%20Schiffbeker%20Berg%2020%2C%2022111%20Hamburg!5e0!3m2!1sde!2sde!4v1759424484679!5m2!1sde!2sde" width="800" height="300" style={{border:0}} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <Footer />
     </div>
   )
 }

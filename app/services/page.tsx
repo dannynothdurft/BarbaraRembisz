@@ -1,5 +1,3 @@
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { Sparkles, Car, Paintbrush, Truck } from 'lucide-react'
@@ -18,7 +16,7 @@ export default function ServicesPage() {
         'Armaturenbrett und Verkleidungen',
         'Felgenreinigung und -versiegelung',
       ],
-      image: '/images/luxury-car-being-professionally-detailed-polished-.jpg',
+      image: '/images/team-01.jpg',
     },
     {
       icon: Paintbrush,
@@ -31,7 +29,7 @@ export default function ServicesPage() {
         'Kratzerentfernung',
         'Langanhaltender Schutz',
       ],
-      image: '/images/professional-car-detailing-service-luxury-vehicle-.jpg',
+      image: '/images/bmw-03.jpg',
     },
     {
       icon: Car,
@@ -44,7 +42,7 @@ export default function ServicesPage() {
         'Fleckenentfernung',
         'Geruchsneutralisierung',
       ],
-      image: '/images/luxury-car-interior-dashboard-steering-wheel-dark-.jpg',
+      image: '/images/bmw-04.jpg',
     },
     {
       icon: Truck,
@@ -57,13 +55,12 @@ export default function ServicesPage() {
         'Polstermöbel-Reinigung',
         'Spezielle Behandlung großer Flächen',
       ],
-      image: '/images/luxury-car-being-professionally-detailed-polished-.jpg',
+      image: '/images/bmw-05.jpg',
     },
   ]
 
   return (
     <div className="min-h-screen bg-black">
-      <Header />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 bg-gradient-to-b from-zinc-900 to-black">
@@ -166,7 +163,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <Footer />
     </div>
   )
 }

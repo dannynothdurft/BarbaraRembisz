@@ -9,7 +9,7 @@ export function AboutSection() {
           {/* Left side - Image */}
           <div className="relative h-[500px] rounded-lg overflow-hidden">
             <Image
-              src="/images/professional-car-detailing-service-luxury-vehicle-.jpg"
+              src="/images/bmw-01.jpg"
               alt="Professional car detailing"
               fill
               className="object-cover"
