@@ -11,7 +11,7 @@ export function HeroSection() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage:
-            "url('/images/bmw-03.jpg')",
+            "url('/images/bmw-04.jpg')",
         }}
       >
         {/* Dark Overlay */}
@@ -20,7 +20,7 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4">
-        <div className="max-w-2xl">
+        <div className="text-center">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight text-balance">
             Holen Sie sich das Neuwagengefühl zurück mit unserer professionellen
             Aufbereitung
