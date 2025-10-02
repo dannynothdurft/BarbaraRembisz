@@ -11,7 +11,7 @@ export function HeroSection() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage:
-            "url('/images/luxury-car-interior-dashboard-steering-wheel-dark-.jpg')",
+            "url('/images/bmw-03.jpg')",
         }}
       >
         {/* Dark Overlay */}
