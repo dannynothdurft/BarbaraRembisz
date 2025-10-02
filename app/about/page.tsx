@@ -1,6 +1,6 @@
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 import { CheckCircle2, Award, Users, Target } from 'lucide-react'
 import Image from 'next/image'
 
@@ -81,7 +81,7 @@ export default function AboutPage() {
             </div>
             <div className="relative h-[500px] rounded-2xl overflow-hidden">
               <Image
-                src="/professional-car-detailing-service-luxury-vehicle-.jpg"
+                src="/images/professional-car-detailing-service-luxury-vehicle-.jpg"
                 alt="Professionelle Autoaufbereitung"
                 fill
                 className="object-cover"
@@ -128,9 +128,12 @@ export default function AboutPage() {
             <p className="text-black/80 mb-8 max-w-2xl mx-auto">
               Kontaktieren Sie uns noch heute und erleben Sie den Unterschied
             </p>
-            <Button className="bg-black text-white hover:bg-zinc-800 rounded-full px-8 py-6 text-lg">
+            <Link
+              href="/kontakt"
+              className="bg-black text-white hover:bg-zinc-800 rounded-full px-8 py-6 text-lg"
+            >
               Jetzt Termin vereinbaren
-            </Button>
+            </Link>
           </div>
         </div>
       </section>

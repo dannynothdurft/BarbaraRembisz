@@ -1,6 +1,7 @@
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 import { Sparkles, Car, Paintbrush, Truck } from 'lucide-react'
 import Image from 'next/image'
 
@@ -148,12 +149,18 @@ export default function ServicesPage() {
               Transporter, Wohnmobile und Wohnwagen.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-black text-white hover:bg-zinc-800 rounded-full px-8 py-6 text-lg">
+              <Link
+                href="/kontakt"
+                className="bg-black text-white hover:bg-zinc-800 rounded-full px-8 py-6 text-lg"
+              >
                 Jetzt Termin vereinbaren
-              </Button>
-              <Button className="bg-transparent border-2 border-black text-black hover:bg-black hover:text-white rounded-full px-8 py-6 text-lg">
+              </Link>
+              <Link
+                href="/kontakt"
+                className="bg-transparent border-2 border-black text-black hover:bg-black hover:text-white rounded-full px-8 py-6 text-lg"
+              >
                 Angebot anfordern
-              </Button>
+              </Link>
             </div>
           </div>
         </div>

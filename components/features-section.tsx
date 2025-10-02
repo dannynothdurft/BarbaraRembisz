@@ -27,13 +27,6 @@ export function FeaturesSection() {
   return (
     <section className="relative bg-black py-20 border-t border-white/10">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <p className="text-yellow-400 text-sm font-semibold uppercase tracking-wider mb-4">
-            ÜBER UNS
-          </p>
-        </div>
-
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {features.map((feature, index) => (

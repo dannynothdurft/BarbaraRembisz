@@ -39,7 +39,17 @@ export function ServicesSection() {
             UNSERE TOP-LÖSUNGEN
           </p>
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-            Umfassende Autoaufbereitungslösungen für
+            Umfassende{' '}
+            <span
+              lang="de"
+              style={{
+                overflowWrap: 'break-word',
+                wordBreak: 'break-word',
+                hyphens: 'auto',
+              }}
+            >
+              Autoaufbereitungslösungen
+            </span>
             <br />
             ein makelloses Finish
           </h2>

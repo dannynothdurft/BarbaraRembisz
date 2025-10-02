@@ -111,18 +111,19 @@ export function Header() {
               Services
             </Link>
             <Link
-              href="/contact"
+              href="/kontakt"
               onClick={handleLinkClick}
               className="text-white text-base font-medium hover:text-yellow-400 transition-colors py-2"
             >
               Kontakt
             </Link>
-            <Button
+            <Link
+              href="/kontakt"
               onClick={handleLinkClick}
               className="bg-transparent border-2 border-white text-white hover:bg-yellow-400 hover:text-black hover:border-yellow-400 transition-all duration-300 rounded-full px-6 mt-2"
             >
               Termin vereinbaren
-            </Button>
+            </Link>
           </nav>
         </div>
       )}

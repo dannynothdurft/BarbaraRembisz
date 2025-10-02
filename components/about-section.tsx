@@ -18,9 +18,6 @@ export function AboutSection() {
 
           {/* Right side - Content */}
           <div>
-            <p className="text-yellow-400 text-sm font-semibold mb-4 uppercase tracking-wider">
-              ÜBER UNS
-            </p>
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
               Unser Engagement für Premium-Autoaufbereitung, die das Beste aus
               Ihrem Fahrzeug herausholt und jedes Mal für Showroom-Glanz sorgt
