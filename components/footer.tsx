@@ -1,17 +1,16 @@
 import React from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react'
 
 export function Footer() {
   return (
-    <footer className="bg-black border-t border-zinc-800">
+    <footer className="bg-[#00152a] border-t border-zinc-800">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
-          <div>
-            <h3 className="text-2xl font-bold text-white mb-4">
-              <span className="text-yellow-400">Barbara</span> Rembisz
-            </h3>
+          <div className='flex flex-col gap-4'>
+            <Image src="/images/Logo.jpg" width={150} height={50} alt='Barbara Rembisz - Logo'/>
             <p className="text-gray-400 mb-4 leading-relaxed">
               Professionelle Autoaufbereitung in Hamburg – Ihr Partner für Glanz
               und Werterhalt.
