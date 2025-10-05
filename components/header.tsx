@@ -45,6 +45,12 @@ export function Header() {
               Startseite
             </Link>
             <Link
+              href="/vorher-nachher"
+              className="text-white text-sm font-medium hover:text-yellow-300 transition-colors"
+            >
+              V/H
+            </Link>
+            <Link
               href="/about"
               className="text-white text-sm font-medium hover:text-yellow-400 transition-colors"
             >
@@ -93,6 +99,13 @@ export function Header() {
               className="text-yellow-400 text-base font-medium hover:text-yellow-300 transition-colors py-2"
             >
               Startseite
+            </Link>
+              <Link
+              href="/vorher-nachher"
+              onClick={handleLinkClick}
+              className="text-white text-base font-medium hover:text-yellow-300 transition-colors py-2"
+            >
+              V/H
             </Link>
             <Link
               href="/about"
