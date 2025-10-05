@@ -1,8 +1,15 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
+import { MoveHorizontal } from 'lucide-react'
 import Image from "next/image";
+
+interface BeforeAfterSliderProps {
+  beforeImage: string;
+  afterImage: string;
+  alt?: string;
+}
 
 export default function VorherNachherPage() {
   const images = [
@@ -44,7 +51,7 @@ export default function VorherNachherPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2 }}
             >
-              <BeforeAfter before={img.before} after={img.after} />
+              <BeforeAfterSlider beforeImage={img.before} afterImage={img.after} alt="Pups" />
             </motion.div>
           ))}
         </section>
@@ -53,81 +60,103 @@ export default function VorherNachherPage() {
   );
 }
 
-function BeforeAfter({ before, after }: { before: string; after: string }) {
-  const [position, setPosition] = useState(50);
-  const containerRef = useRef<HTMLDivElement>(null);
+export function BeforeAfterSlider({ beforeImage, afterImage, alt = 'Before and After comparison' }: BeforeAfterSliderProps) {
+  const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const handleMove = (clientX: number) => {
     if (!containerRef.current) return;
+
     const rect = containerRef.current.getBoundingClientRect();
-    let x = ((clientX - rect.left) / rect.width) * 100;
-    if (x < 0) x = 0;
-    if (x > 100) x = 100;
-    setPosition(x);
+    const x = clientX - rect.left;
+    const percentage = (x / rect.width) * 100;
+
+    setSliderPosition(Math.min(Math.max(percentage, 0), 100));
   };
 
-  const handleMouseDown = () => setIsDragging(true);
-  const handleMouseUp = () => setIsDragging(false);
+  const handleMouseDown = () => {
+    setIsDragging(true);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: MouseEvent) => {
+    if (!isDragging) return;
+    handleMove(e.clientX);
+  };
+
+  const handleTouchMove = (e: TouchEvent) => {
+    if (!isDragging) return;
+    handleMove(e.touches[0].clientX);
+  };
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (isDragging) handleMove(e.clientX);
-    };
-    const handleTouchMove = (e: TouchEvent) => {
-      if (isDragging && e.touches[0]) handleMove(e.touches[0].clientX);
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseup", handleMouseUp);
-    window.addEventListener("touchmove", handleTouchMove);
-    window.addEventListener("touchend", handleMouseUp);
+    if (isDragging) {
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseup', handleMouseUp);
+      window.addEventListener('touchmove', handleTouchMove);
+      window.addEventListener('touchend', handleMouseUp);
+    }
+
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseup", handleMouseUp);
-      window.removeEventListener("touchmove", handleTouchMove);
-      window.removeEventListener("touchend", handleMouseUp);
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', handleMouseUp);
     };
   }, [isDragging]);
 
   return (
     <div
       ref={containerRef}
-      className="relative overflow-hidden rounded-2xl shadow-2xl cursor-ew-resize"
-      onMouseDown={handleMouseDown}
-      onTouchStart={handleMouseDown}
+      className="relative w-full aspect-video overflow-hidden rounded-lg shadow-2xl cursor-col-resize select-none"
+      onMouseDown={(e) => {
+        handleMove(e.clientX);
+        handleMouseDown();
+      }}
+      onTouchStart={(e) => {
+        handleMove(e.touches[0].clientX);
+        handleMouseDown();
+      }}
     >
-      {/* Vorher-Bild */}
-      <Image
-        src={before}
-        alt="Vorher"
-        width={600}
-        height={400}
-        className="w-full h-auto object-cover"
+      <img
+        src={afterImage}
+        alt={`${alt} - After`}
+        className="absolute inset-0 w-full h-full object-cover"
+        draggable={false}
       />
 
-      {/* Nachher-Bild */}
       <div
-        className="absolute top-0 left-0 h-full overflow-hidden"
-        style={{ width: `${position}%` }}
+        className="absolute inset-0 w-full h-full overflow-hidden"
+        style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
       >
-        <Image
-          src={after}
-          alt="Nachher"
-          width={600}
-          height={400}
-          className="absolute top-0 left-0 w-full h-full object-cover"
+        <img
+          src={beforeImage}
+          alt={`${alt} - Before`}
+          className="absolute inset-0 w-full h-full object-cover"
+          draggable={false}
         />
       </div>
 
-      {/* Slider */}
       <div
-        className="absolute top-0 bottom-0 w-1 bg-white/80"
-        style={{ left: `${position}%` }}
+        className="absolute top-0 bottom-0 w-1 bg-yellow-200 shadow-lg"
+        style={{ left: `${sliderPosition}%`, transform: 'translateX(-50%)' }}
       >
-        <div className="absolute top-1/2 -translate-y-1/2 -left-3 w-6 h-6 bg-yellow-400 rounded-full border-2 border-black"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 bg-yellow-200 rounded-full shadow-xl flex items-center justify-center">
+          <MoveHorizontal className="w-5 h-5 text-gray-700" />
+        </div>
+      </div>
+
+      <div className="absolute top-4 left-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm">
+        Vorher
+      </div>
+
+      <div className="absolute top-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm">
+        Nachher
       </div>
     </div>
   );
 }
-
-
