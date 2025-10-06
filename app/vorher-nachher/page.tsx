@@ -1,25 +1,41 @@
-"use client";
-
-import { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion"
+'use client'
+import { useState, useRef, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import { MoveHorizontal } from 'lucide-react'
-import Image from "next/image";
 
 interface BeforeAfterSliderProps {
-  beforeImage: string;
-  afterImage: string;
-  alt?: string;
+  beforeImage: string
+  afterImage: string
+  alt?: string
 }
 
 export default function VorherNachherPage() {
   const images = [
-    { before: "/images/before-after/IMG_2704.jpg", after: "/images/before-after/IMG_2801.jpg" },
-    { before: "/images/before-after/IMG_2712.jpg", after: "/images/before-after/IMG_2773.jpg" },
-    { before: "/images/before-after/IMG_2719.jpg", after: "/images/before-after/IMG_2777.jpg" },
-    { before: "/images/before-after/IMG_2721.jpg", after: "/images/before-after/IMG_2792.jpg" },
-    { before: "/images/before-after/IMG_2734.jpg", after: "/images/before-after/IMG_2780.jpg" },
-    { before: "/images/before-after/IMG_2748.jpg", after: "/images/before-after/IMG_2790.jpg" },
-  ];
+    {
+      before: '/images/before-after/IMG_2704.jpg',
+      after: '/images/before-after/IMG_2801.jpg',
+    },
+    {
+      before: '/images/before-after/IMG_2712.jpg',
+      after: '/images/before-after/IMG_2773.jpg',
+    },
+    {
+      before: '/images/before-after/IMG_2719.jpg',
+      after: '/images/before-after/IMG_2777.jpg',
+    },
+    {
+      before: '/images/before-after/IMG_2721.jpg',
+      after: '/images/before-after/IMG_2792.jpg',
+    },
+    {
+      before: '/images/before-after/IMG_2734.jpg',
+      after: '/images/before-after/IMG_2780.jpg',
+    },
+    {
+      before: '/images/before-after/IMG_2748.jpg',
+      after: '/images/before-after/IMG_2790.jpg',
+    },
+  ]
 
   return (
     <div className="bg-black text-white min-h-screen">
@@ -39,7 +55,8 @@ export default function VorherNachherPage() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-gray-300 text-lg max-w-2xl mx-auto"
           >
-            Erleben Sie den Unterschied – professionelle Autoaufbereitung mit Liebe zum Detail.
+            Erleben Sie den Unterschied – professionelle Autoaufbereitung mit
+            Liebe zum Detail.
           </motion.p>
         </section>
 
@@ -51,75 +68,83 @@ export default function VorherNachherPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2 }}
             >
-              <BeforeAfterSlider beforeImage={img.before} afterImage={img.after} alt="Pups" />
+              <BeforeAfterSlider
+                beforeImage={img.before}
+                afterImage={img.after}
+                alt="Pups"
+              />
             </motion.div>
           ))}
         </section>
       </main>
     </div>
-  );
+  )
 }
 
-export function BeforeAfterSlider({ beforeImage, afterImage, alt = 'Before and After comparison' }: BeforeAfterSliderProps) {
-  const [sliderPosition, setSliderPosition] = useState(50);
-  const [isDragging, setIsDragging] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
+export function BeforeAfterSlider({
+  beforeImage,
+  afterImage,
+  alt = 'Before and After comparison',
+}: BeforeAfterSliderProps) {
+  const [sliderPosition, setSliderPosition] = useState(50)
+  const [isDragging, setIsDragging] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   const handleMove = (clientX: number) => {
-    if (!containerRef.current) return;
+    if (!containerRef.current) return
 
-    const rect = containerRef.current.getBoundingClientRect();
-    const x = clientX - rect.left;
-    const percentage = (x / rect.width) * 100;
+    const rect = containerRef.current.getBoundingClientRect()
+    const x = clientX - rect.left
+    const percentage = (x / rect.width) * 100
 
-    setSliderPosition(Math.min(Math.max(percentage, 0), 100));
-  };
+    setSliderPosition(Math.min(Math.max(percentage, 0), 100))
+  }
 
   const handleMouseDown = () => {
-    setIsDragging(true);
-  };
+    setIsDragging(true)
+  }
 
   const handleMouseUp = () => {
-    setIsDragging(false);
-  };
+    setIsDragging(false)
+  }
 
   const handleMouseMove = (e: MouseEvent) => {
-    if (!isDragging) return;
-    handleMove(e.clientX);
-  };
+    if (!isDragging) return
+    handleMove(e.clientX)
+  }
 
   const handleTouchMove = (e: TouchEvent) => {
-    if (!isDragging) return;
-    handleMove(e.touches[0].clientX);
-  };
+    if (!isDragging) return
+    handleMove(e.touches[0].clientX)
+  }
 
   useEffect(() => {
     if (isDragging) {
-      window.addEventListener('mousemove', handleMouseMove);
-      window.addEventListener('mouseup', handleMouseUp);
-      window.addEventListener('touchmove', handleTouchMove);
-      window.addEventListener('touchend', handleMouseUp);
+      window.addEventListener('mousemove', handleMouseMove)
+      window.addEventListener('mouseup', handleMouseUp)
+      window.addEventListener('touchmove', handleTouchMove)
+      window.addEventListener('touchend', handleMouseUp)
     }
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseup', handleMouseUp);
-      window.removeEventListener('touchmove', handleTouchMove);
-      window.removeEventListener('touchend', handleMouseUp);
-    };
-  }, [isDragging]);
+      window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('mouseup', handleMouseUp)
+      window.removeEventListener('touchmove', handleTouchMove)
+      window.removeEventListener('touchend', handleMouseUp)
+    }
+  }, [isDragging])
 
   return (
     <div
       ref={containerRef}
       className="relative w-full aspect-video overflow-hidden rounded-lg shadow-2xl cursor-col-resize select-none"
       onMouseDown={(e) => {
-        handleMove(e.clientX);
-        handleMouseDown();
+        handleMove(e.clientX)
+        handleMouseDown()
       }}
       onTouchStart={(e) => {
-        handleMove(e.touches[0].clientX);
-        handleMouseDown();
+        handleMove(e.touches[0].clientX)
+        handleMouseDown()
       }}
     >
       <img
@@ -158,5 +183,5 @@ export function BeforeAfterSlider({ beforeImage, afterImage, alt = 'Before and A
         Nachher
       </div>
     </div>
-  );
+  )
 }

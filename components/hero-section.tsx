@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
+import { motion } from 'framer-motion'
 
 export function HeroSection() {
   return (
@@ -10,8 +10,7 @@ export function HeroSection() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage:
-            "url('/images/bmw-04.jpg')",
+          backgroundImage: "url('/images/bmw-04.jpg')",
         }}
       >
         {/* Dark Overlay */}
@@ -20,18 +19,24 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4">
-        <div className="text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center"
+        >
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight text-balance">
             Holen Sie sich das Neuwagengefühl zurück mit unserer professionellen
             Aufbereitung
           </h1>
+
           <Link
             href={'/kontakt'}
             className="bg-yellow-400 text-black hover:bg-yellow-500 font-semibold px-8 py-6 text-base rounded-full transition-all duration-300 hover:scale-105"
           >
             Termin vereinbaren
           </Link>
-        </div>
+        </motion.div>
       </div>
 
       {/* Scroll Indicator */}

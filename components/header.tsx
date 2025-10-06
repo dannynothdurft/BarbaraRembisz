@@ -33,7 +33,12 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/images/Logo.jpg" width={150} height={50} alt='Barbara Rembisz - Logo'/>
+            <Image
+              src="/images/Logo.jpg"
+              width={150}
+              height={50}
+              alt="Barbara Rembisz - Logo"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -100,7 +105,7 @@ export function Header() {
             >
               Startseite
             </Link>
-              <Link
+            <Link
               href="/vorher-nachher"
               onClick={handleLinkClick}
               className="text-white text-base font-medium hover:text-yellow-300 transition-colors py-2"

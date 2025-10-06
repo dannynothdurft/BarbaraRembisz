@@ -9,8 +9,13 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
-          <div className='flex flex-col gap-4'>
-            <Image src="/images/Logo.jpg" width={150} height={50} alt='Barbara Rembisz - Logo'/>
+          <div className="flex flex-col gap-4">
+            <Image
+              src="/images/Logo.jpg"
+              width={150}
+              height={50}
+              alt="Barbara Rembisz - Logo"
+            />
             <p className="text-gray-400 mb-4 leading-relaxed">
               Professionelle Autoaufbereitung in Hamburg – Ihr Partner für Glanz
               und Werterhalt.

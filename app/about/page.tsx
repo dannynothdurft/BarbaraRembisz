@@ -5,7 +5,6 @@ import Image from 'next/image'
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-black">
-
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 bg-gradient-to-b from-zinc-900 to-black">
         <div className="container mx-auto px-4">
@@ -134,7 +133,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
     </div>
   )
 }
