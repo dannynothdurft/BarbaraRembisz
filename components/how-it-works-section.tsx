@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Calendar, Sparkles, Car, Phone, CheckCircle } from 'lucide-react'
+import { Sparkles, Car, Phone, CheckCircle } from 'lucide-react'
 
 const steps = [
   {

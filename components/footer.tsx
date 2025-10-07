@@ -226,12 +226,6 @@ export function Footer() {
               >
                 Datenschutz
               </Link>
-              <Link
-                href="/agb"
-                className="text-gray-400 hover:text-yellow-400 transition-colors"
-              >
-                AGB
-              </Link>
             </div>
           </div>
         </div>
