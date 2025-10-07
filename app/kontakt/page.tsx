@@ -1,144 +1,222 @@
+"use client"
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { MapPin, Phone, Mail, Clock } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { MapPin, Phone, Mail, Clock, Car, MessageCircle } from 'lucide-react'
 
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-black">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-b from-zinc-900 to-black">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
+      <section className="relative pt-32 pb-20 bg-gradient-to-b from-[#00152a]/20 to-black overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/5 to-transparent" />
+        <div className="container mx-auto px-4 relative">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto text-center"
+          >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Kontaktieren Sie <span className="text-yellow-400">Uns</span>
+              Kontakt & <span className="text-yellow-400">Termin</span>
             </h1>
-            <p className="text-lg text-gray-300 leading-relaxed">
-              Wir freuen uns auf Ihre Nachricht und beraten Sie gerne
+            <p className="text-xl text-gray-300 leading-relaxed mb-8">
+              Vereinbaren Sie eine kostenlose Vor-Ort-Begutachtung in Hamburg-Billstedt
             </p>
-          </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="tel:+4917662912411">
+                <Button className="bg-yellow-400 hover:bg-yellow-300 text-[#00152a] font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-lg">
+                  <Phone className="w-5 h-5 mr-2" />
+                  Direkt anrufen
+                </Button>
+              </a>
+              <a href="https://wa.me/4917662912411" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-[#00152a] font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105">
+                  <MessageCircle className="w-5 h-5 mr-2" />
+                  WhatsApp
+                </Button>
+              </a>
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Contact Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Contact Form */}
-            <div className="bg-zinc-900 p-8 md:p-12 rounded-2xl border border-white/10">
-              <h2 className="text-3xl font-bold text-white mb-6">
-                Senden Sie uns eine Nachricht
-              </h2>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-zinc-900 to-zinc-800 p-8 md:p-12 rounded-2xl border border-white/10"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-yellow-400/10 rounded-xl flex items-center justify-center">
+                  <Car className="w-6 h-6 text-yellow-400" />
+                </div>
+                <div>
+                  <h2 className="text-3xl font-bold text-white">
+                    Termin anfragen
+                  </h2>
+                  <p className="text-gray-400 text-sm">
+                    Kostenlose Vor-Ort-Begutachtung
+                  </p>
+                </div>
+              </div>
+              
               <p className="text-gray-400 mb-8">
-                Füllen Sie das Formular aus und wir melden uns schnellstmöglich
-                bei Ihnen
+                Beschreiben Sie Ihr Fahrzeug und gewünschte Leistungen. 
+                Wir melden uns innerhalb von 24 Stunden für eine persönliche Beratung.
               </p>
+              
               <form className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-white text-sm font-medium mb-2">
-                      Vorname
+                      Vorname *
                     </label>
                     <Input
                       type="text"
                       placeholder="Ihr Vorname"
-                      className="bg-black border-white/20 text-white placeholder:text-gray-500"
+                      className="bg-black border-white/20 text-white placeholder:text-gray-500 focus:border-yellow-400"
+                      required
                     />
                   </div>
                   <div>
                     <label className="block text-white text-sm font-medium mb-2">
-                      Nachname
+                      Nachname *
                     </label>
                     <Input
                       type="text"
                       placeholder="Ihr Nachname"
-                      className="bg-black border-white/20 text-white placeholder:text-gray-500"
+                      className="bg-black border-white/20 text-white placeholder:text-gray-500 focus:border-yellow-400"
+                      required
                     />
                   </div>
                 </div>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-white text-sm font-medium mb-2">
+                      Telefon *
+                    </label>
+                    <Input
+                      type="tel"
+                      placeholder="+49 176 62912411"
+                      className="bg-black border-white/20 text-white placeholder:text-gray-500 focus:border-yellow-400"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-white text-sm font-medium mb-2">
+                      E-Mail
+                    </label>
+                    <Input
+                      type="email"
+                      placeholder="ihre.email@beispiel.de"
+                      className="bg-black border-white/20 text-white placeholder:text-gray-500 focus:border-yellow-400"
+                    />
+                  </div>
+                </div>
+
                 <div>
                   <label className="block text-white text-sm font-medium mb-2">
-                    E-Mail
+                    Fahrzeugtyp *
                   </label>
                   <Input
-                    type="email"
-                    placeholder="ihre.email@beispiel.de"
-                    className="bg-black border-white/20 text-white placeholder:text-gray-500"
+                    type="text"
+                    placeholder="z.B. BMW 3er, VW Golf, Wohnmobil..."
+                    className="bg-black border-white/20 text-white placeholder:text-gray-500 focus:border-yellow-400"
+                    required
                   />
                 </div>
+
                 <div>
                   <label className="block text-white text-sm font-medium mb-2">
-                    Telefon
-                  </label>
-                  <Input
-                    type="tel"
-                    placeholder="+49 (0) 123 456789"
-                    className="bg-black border-white/20 text-white placeholder:text-gray-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-white text-sm font-medium mb-2">
-                    Nachricht
+                    Gewünschte Leistungen *
                   </label>
                   <Textarea
-                    placeholder="Beschreiben Sie Ihr Anliegen..."
-                    rows={6}
-                    className="bg-black border-white/20 text-white placeholder:text-gray-500 resize-none"
+                    placeholder="z.B. Komplettaufbereitung, Lackpolitur, Innenreinigung, Motorwäsche, Geruchsentfernung..."
+                    rows={4}
+                    className="bg-black border-white/20 text-white placeholder:text-gray-500 resize-none focus:border-yellow-400"
+                    required
                   />
                 </div>
-                <Button className="w-full bg-yellow-400 text-black hover:bg-yellow-500 rounded-full py-6 text-lg font-semibold">
-                  Nachricht senden
+
+                <Button 
+                  type="submit"
+                  className="w-full bg-yellow-400 hover:bg-yellow-300 text-[#00152a] font-semibold rounded-full py-6 text-lg transition-all duration-300 hover:scale-105 shadow-lg"
+                >
+                  Kostenlose Beratung anfragen
                 </Button>
+                
+                <p className="text-gray-400 text-sm text-center">
+                  * Pflichtfelder. Wir behandeln Ihre Daten vertraulich.
+                </p>
               </form>
-            </div>
+            </motion.div>
 
             {/* Contact Information */}
-            <div className="space-y-8">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
               <div>
-                <h2 className="text-3xl font-bold text-white mb-6">
-                  Kontaktinformationen
+                <h2 className="text-3xl font-bold text-white mb-4">
+                  Ihr Ansprechpartner in Hamburg
                 </h2>
-                <p className="text-gray-400 mb-8">
-                  Erreichen Sie uns über folgende Kontaktmöglichkeiten oder
-                  besuchen Sie uns direkt vor Ort
+                <p className="text-gray-400 text-lg">
+                  Persönliche Beratung und transparente Preise nach Vor-Ort-Begutachtung
                 </p>
               </div>
 
               <div className="space-y-6">
-                <div className="flex items-start gap-4 bg-zinc-900 p-6 rounded-xl border border-white/10">
+                <div className="flex items-start gap-4 bg-gradient-to-br from-zinc-900 to-zinc-800 p-6 rounded-xl border border-white/10 hover:border-yellow-400/30 transition-all duration-300">
                   <div className="w-12 h-12 bg-yellow-400/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-6 h-6 text-yellow-400" />
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold mb-2">Adresse</h3>
+                    <h3 className="text-white font-semibold mb-2">Standort</h3>
                     <p className="text-gray-400">
-                      Am Schiffbeker Berg 20
-                      <br />
-                      22111 Hamburg
-                      <br />
-                      Deutschland
+                      Am Schiffbeker Berg 20<br />
+                      22111 Hamburg-Billstedt
+                    </p>
+                    <p className="text-yellow-400 text-sm mt-2">
+                      🚗 Kostenlose Parkplätze verfügbar
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 bg-zinc-900 p-6 rounded-xl border border-white/10">
+                <div className="flex items-start gap-4 bg-gradient-to-br from-zinc-900 to-zinc-800 p-6 rounded-xl border border-white/10 hover:border-yellow-400/30 transition-all duration-300">
                   <div className="w-12 h-12 bg-yellow-400/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <Phone className="w-6 h-6 text-yellow-400" />
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold mb-2">Telefon</h3>
-                    <p className="text-gray-400">
-                      <a
-                        href="tel:+4917662912411"
-                        className="hover:text-yellow-400 transition-colors"
-                      >
-                        +49 (0) 176 629 124 11
-                      </a>
-                    </p>
+                    <h3 className="text-white font-semibold mb-2">Telefon & WhatsApp</h3>
+                    <div className="space-y-2">
+                      <p className="text-gray-400">
+                        <a
+                          href="tel:+4917662912411"
+                          className="hover:text-yellow-400 transition-colors text-lg font-semibold"
+                        >
+                          +49 176 629 124 11
+                        </a>
+                      </p>
+                      <p className="text-gray-400 text-sm">
+                        Mo-Fr: 8:00-18:00 • Sa: 9:00-14:00
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 bg-zinc-900 p-6 rounded-xl border border-white/10">
+                <div className="flex items-start gap-4 bg-gradient-to-br from-zinc-900 to-zinc-800 p-6 rounded-xl border border-white/10 hover:border-yellow-400/30 transition-all duration-300">
                   <div className="w-12 h-12 bg-yellow-400/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <Mail className="w-6 h-6 text-yellow-400" />
                   </div>
@@ -147,7 +225,7 @@ export default function ContactPage() {
                     <p className="text-gray-400">
                       <a
                         href="mailto:info@autoaufbereitung-rembisz.de"
-                        className="hover:text-yellow-400 transition-colors"
+                        className="hover:text-yellow-400 transition-colors break-all"
                       >
                         info@autoaufbereitung-rembisz.de
                       </a>
@@ -155,37 +233,68 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 bg-zinc-900 p-6 rounded-xl border border-white/10">
+                <div className="flex items-start gap-4 bg-gradient-to-br from-zinc-900 to-zinc-800 p-6 rounded-xl border border-white/10 hover:border-yellow-400/30 transition-all duration-300">
                   <div className="w-12 h-12 bg-yellow-400/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <Clock className="w-6 h-6 text-yellow-400" />
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold mb-2">
-                      Öffnungszeiten
-                    </h3>
-                    <p className="text-gray-400">
-                      Montag - Freitag: 08:00 - 18:00
-                      <br />
-                      Samstag: 09:00 - 14:00
-                      <br />
-                      Sonntag: Geschlossen
-                    </p>
+                    <h3 className="text-white font-semibold mb-2">Öffnungszeiten</h3>
+                    <div className="text-gray-400 space-y-1">
+                      <p className="flex justify-between">
+                        <span>Montag - Freitag:</span>
+                        <span>08:00 - 18:00 Uhr</span>
+                      </p>
+                      <p className="flex justify-between">
+                        <span>Samstag:</span>
+                        <span>09:00 - 14:00 Uhr</span>
+                      </p>
+                      <p className="flex justify-between text-gray-500">
+                        <span>Sonntag:</span>
+                        <span>Geschlossen</span>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Map Placeholder */}
-              <div className="bg-zinc-900 rounded-2xl border border-white/10 overflow-hidden h-[300px] flex items-center justify-center">
+              {/* Service Info */}
+              <div className="bg-gradient-to-br from-[#00152a] to-zinc-900 border border-yellow-400/20 rounded-2xl p-6">
+                <h3 className="text-white font-bold text-lg mb-3">
+                  💡 Unser Service
+                </h3>
+                <ul className="text-gray-300 text-sm space-y-2">
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full" />
+                    Kostenlose Vor-Ort-Begutachtung
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full" />
+                    Transparente Preise nach Bewertung
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full" />
+                    Hol- & Bringservice in Hamburg
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full" />
+                    Individuelle Terminvereinbarung
+                  </li>
+                </ul>
+              </div>
+
+              {/* Map */}
+              <div className="bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-2xl border border-white/10 overflow-hidden h-[300px]">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2370.915281950701!2d10.091933077308921!3d53.54142687234645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b18c467f8a6d31%3A0xa535daa83554059!2sAm%20Schiffbeker%20Berg%2020%2C%2022111%20Hamburg!5e0!3m2!1sde!2sde!4v1759424484679!5m2!1sde!2sde"
-                  width="800"
-                  height="300"
+                  width="100%"
+                  height="100%"
                   style={{ border: 0 }}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
+                  title="Standort Autoaufbereitung Rembisz Hamburg-Billstedt"
                 ></iframe>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
