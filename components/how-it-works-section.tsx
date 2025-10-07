@@ -1,89 +1,142 @@
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { Calendar, Sparkles, Car } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { Calendar, Sparkles, Car, Phone, CheckCircle } from 'lucide-react'
 
 const steps = [
   {
-    number: '01',
-    icon: Calendar,
-    title: 'Termin vereinbaren',
-    description:
-      'Wählen Sie den Aufbereitungsservice, der am besten zu Ihren Bedürfnissen passt, und vereinbaren Sie einen Termin zu Ihrer Bequemlichkeit. Sie können online buchen, uns anrufen oder unseren Standort besuchen. Wir bestätigen Ihre Buchung und geben Ihnen alle notwendigen Vorbereitungsdetails.',
+    icon: Phone,
+    title: 'Kontakt & Beratung',
+    description: 'Kontaktieren Sie uns telefonisch oder per WhatsApp für eine kostenlose Erstberatung. Wir besprechen Ihre Wünsche und vereinbaren einen Termin zur Vor-Ort-Begutachtung.',
+    details: ['Telefonische Beratung', 'Terminvereinbarung', 'Kostenlose Einschätzung']
   },
   {
-    number: '02',
-    icon: Sparkles,
-    title: 'Wir bereiten Ihr Auto auf',
-    description:
-      'Unsere professionellen Aufbereiter reinigen, restaurieren und schützen Ihr Fahrzeug sorgfältig mit hochwertigen Produkten und fortschrittlichen Techniken. Von der Tiefenreinigung des Innenraums bis zur Außenpolitur und Lackschutz stellen wir sicher, dass jeder Zentimeter Ihres Autos makellos aussieht.',
-  },
-  {
-    number: '03',
     icon: Car,
-    title: 'Genießen Sie den Glanz',
-    description:
-      'Sobald die Aufbereitung abgeschlossen ist, wird Ihr Auto makellos, erfrischt und geschützt sein. Holen Sie Ihr Fahrzeug ab oder nutzen Sie unseren Lieferservice (falls verfügbar) und fahren Sie mit Vertrauen davon, in dem Wissen, dass Ihr Auto wie neu aussieht.',
+    title: 'Vor-Ort Begutachtung',
+    description: 'Wir begutachten Ihr Fahrzeug persönlich und erstellen ein individuelles Angebot basierend auf Zustand und gewünschten Leistungen. Transparente Preise ohne Überraschungen.',
+    details: ['Persönliche Einschätzung', 'Individuelles Angebot', 'Transparente Preise']
+  },
+  {
+    icon: Sparkles,
+    title: 'Professionelle Aufbereitung',
+    description: 'Ihr Fahrzeug erhält unsere volle Aufmerksamkeit. Mit modernen Techniken und hochwertigen Produkten bringen wir es zurück in Top-Zustand.',
+    details: ['Handwerkliche Qualität', 'Hochwertige Produkte', 'Sorgfältige Ausführung']
+  },
+  {
+    icon: CheckCircle,
+    title: 'Abholung & Übergabe',
+    description: 'Bei der Übergabe zeigen wir Ihnen die Ergebnisse und sind für Rückfragen da. Optional mit Hol- und Bringservice in ganz Hamburg.',
+    details: ['Persönliche Übergabe', 'Qualitätskontrolle', 'Hol- & Bringservice']
   },
 ]
 
 export function HowItWorksSection() {
   return (
-    <section className="py-20 px-4 bg-black">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-16 sm:py-20 lg:py-24 bg-black overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#00152a]/10 to-black" />
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16 lg:mb-20"
+        >
           <p className="text-yellow-400 text-sm font-semibold mb-4 uppercase tracking-wider">
-            SO FUNKTIONIERT ES
+            SO EINFACH GEHT'S
           </p>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
-            Ihr Fahrzeug in nur drei einfachen Schritten aufbereiten lassen
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+            Ihr Weg zum <span className="text-yellow-400">perfekten Ergebnis</span>
           </h2>
-          <Link
-            href="/kontakt"
-            className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-6 rounded-full"
-          >
-            Jetzt Kontakt aufnehmen
-          </Link>
-        </div>
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            Vom ersten Kontakt bis zur fertigen Aufbereitung - 
+            transparent und unkompliziert in Hamburg-Billstedt
+          </p>
+        </motion.div>
 
-        {/* Steps */}
-        <div className="space-y-12 mt-16">
+        {/* Steps Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {steps.map((step, index) => (
-            <div
+            <motion.div
               key={index}
-              className="flex flex-col md:flex-row gap-8 items-start"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="group relative bg-gradient-to-br from-zinc-900 to-zinc-800 border border-white/10 rounded-2xl p-6 lg:p-8 hover:border-yellow-400/30 transition-all duration-500"
             >
-              <div className="flex-shrink-0">
-                <div className="bg-yellow-400 w-20 h-20 rounded-full flex items-center justify-center">
-                  <step.icon className="w-10 h-10 text-black" />
-                </div>
+              {/* Step Number */}
+              <div className="absolute -top-4 -left-4 w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg">
+                <span className="text-black font-bold text-sm">{index + 1}</span>
               </div>
-              <div className="flex-1">
-                <div className="flex items-center gap-4 mb-4">
-                  <span className="text-5xl font-bold text-yellow-400">
-                    {step.number}
-                  </span>
-                  <h3 className="text-3xl font-bold text-white">
+
+              {/* Content */}
+              <div className="flex gap-6">
+                {/* Icon */}
+                <div className="flex-shrink-0">
+                  <div className="w-14 h-14 bg-yellow-400/10 rounded-xl flex items-center justify-center group-hover:bg-yellow-400/20 transition-colors">
+                    <step.icon className="w-7 h-7 text-yellow-400" />
+                  </div>
+                </div>
+
+                {/* Text Content */}
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-yellow-400 transition-colors">
                     {step.title}
                   </h3>
+                  <p className="text-gray-300 mb-4 leading-relaxed">
+                    {step.description}
+                  </p>
+                  
+                  {/* Details List */}
+                  <div className="space-y-2">
+                    {step.details.map((detail, detailIndex) => (
+                      <div key={detailIndex} className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full" />
+                        <span className="text-gray-400 text-sm">{detail}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <p className="text-gray-400 text-lg leading-relaxed max-w-3xl">
-                  {step.description}
-                </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* Quote */}
-        <div className="mt-16 text-center max-w-4xl mx-auto">
-          <p className="text-2xl text-gray-300 italic leading-relaxed">
-            "Ihr Auto verdient mehr als nur eine schnelle Wäsche. Unsere
-            Aufbereitungsservices sind darauf ausgelegt, die Extrameile zu
-            gehen, seine Schönheit wiederherzustellen und es vor den Elementen
-            zu schützen, damit es weiterhin überall Blicke auf sich zieht."
-          </p>
-        </div>
+        {/* Bottom Info */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="text-center mt-12 lg:mt-16"
+        >
+          <div className="bg-zinc-900/50 border border-yellow-400/20 rounded-2xl p-8 max-w-2xl mx-auto">
+            <h3 className="text-white font-bold text-xl mb-4">
+              Starten Sie jetzt mit Ihrer Aufbereitung
+            </h3>
+            <p className="text-gray-300 mb-6">
+              Kontaktieren Sie uns für eine kostenlose Beratung und ein 
+              unverbindliches Angebot - persönlich und transparent.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/kontakt"
+                className="bg-yellow-400 hover:bg-yellow-300 text-[#00152a] font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 shadow-lg"
+              >
+                Termin vereinbaren
+              </Link>
+              <a
+                href="tel:+4917662912411"
+                className="bg-transparent text-white font-semibold px-8 py-4 rounded-full border-2 border-white/20 hover:border-yellow-400 transition-all duration-300 hover:scale-105"
+              >
+                Direkt anrufen
+              </a>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   )
