@@ -39,54 +39,105 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-4xl mx-auto"
+          className="max-w-6xl mx-auto"
         >
-          {/* Haupt-Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight text-balance">
-            Ihr Fahrzeug.
-            <br className="hidden sm:block" />
-            <span className="text-yellow-400"> Wie neu.</span>
-            <br className="hidden sm:block" />
-            Garantiert.
-          </h1>
+          {/* Grid Layout - 2 Spalten */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Linke Spalte - Hauptcontent */}
+            <div className="text-center lg:text-left">
+              {/* Haupt-Headline */}
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+                Ihr Fahrzeug.
+                <br />
+                <span className="text-yellow-400">Wie neu.</span>
+                <br />
+                Garantiert.
+              </h1>
 
-          {/* Sub-Headline */}
-          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-8 sm:mb-12 leading-relaxed text-balance max-w-3xl mx-auto px-4">
-            Professionelle Innen- und Außenaufbereitung für strahlenden Glanz
-            und maximalen Werterhalt.
-          </h2>
+              {/* Sub-Headline */}
+              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-xl xl:text-2xl text-white/90 mb-8 sm:mb-10 leading-relaxed">
+                Professionelle Fahrzeugaufbereitung in{' '}
+                <span className="text-yellow-400">Hamburg-Billstedt</span> für
+                strahlenden Glanz und maximalen Werterhalt.
+              </h2>
 
-          {/* CTA Button */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
-            <Link
-              href={'/kontakt'}
-              className="inline-flex items-center justify-center bg-[#00152a] text-white font-semibold px-6 sm:px-8 py-4 sm:py-5 text-sm sm:text-base rounded-full transition-all duration-300 hover:scale-105 shadow-lg animate-pulse hover:animate-none hover:bg-[#002a54] hover:shadow-2xl hover:shadow-[#00152a]/60 min-w-[200px] sm:min-w-[240px]"
-            >
-              Termin vereinbaren
-            </Link>
+              {/* CTA Buttons - Jetzt vertikal auf Mobile */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Link
+                  href={'/kontakt'}
+                  className="inline-flex items-center justify-center bg-[#00152a] text-white font-semibold px-6 sm:px-8 py-4 sm:py-5 text-sm sm:text-base rounded-full transition-all duration-300 hover:scale-105 shadow-lg animate-pulse hover:animate-none hover:bg-[#002a54] hover:shadow-2xl hover:shadow-[#00152a]/60 min-w-[200px] sm:min-w-[220px]"
+                >
+                  Termin vereinbaren
+                </Link>
 
-            {/* Sekundärer Button für mehr Conversion */}
-            <Link
-              href={'/services'}
-              className="inline-flex items-center justify-center bg-transparent text-white font-semibold px-6 sm:px-8 py-4 sm:py-5 text-sm sm:text-base rounded-full transition-all duration-300 hover:scale-105 border-2 border-white/50 hover:border-white hover:bg-white/10 min-w-[200px] sm:min-w-[240px]"
-            >
-              Leistungen entdecken
-            </Link>
-          </div>
-
-          {/* Trust Indicators */}
-          <div className="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 text-white/80 max-w-2xl mx-auto">
-            <div className="flex items-center justify-center gap-2 text-sm sm:text-base">
-              <CheckCircleIcon />
-              <span>Kostenlose Beratung</span>
+                <Link
+                  href={'/leistungen'}
+                  className="inline-flex items-center justify-center bg-transparent text-white font-semibold px-6 sm:px-8 py-4 sm:py-5 text-sm sm:text-base rounded-full transition-all duration-300 hover:scale-105 border-2 border-white/50 hover:border-white hover:bg-white/10 min-w-[200px] sm:min-w-[220px]"
+                >
+                  Leistungen entdecken
+                </Link>
+              </div>
             </div>
-            <div className="flex items-center justify-center gap-2 text-sm sm:text-base">
-              <CheckCircleIcon />
-              <span>Abholservice</span>
-            </div>
-            <div className="flex items-center justify-center gap-2 text-sm sm:text-base">
-              <CheckCircleIcon />
-              <span>12 Monate Garantie</span>
+
+            {/* Rechte Spalte - Trust Elements */}
+            <div className="space-y-8">
+              {/* Trust Indicators */}
+              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-8">
+                <h3 className="text-white font-semibold text-lg sm:text-xl mb-6 text-center lg:text-left">
+                  Warum Kunden uns vertrauen:
+                </h3>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-4 text-white/80">
+                    <CheckCircleIcon />
+                    <span className="text-sm sm:text-base">
+                      Kostenlose Beratung vor Ort
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-4 text-white/80">
+                    <CheckCircleIcon />
+                    <span className="text-sm sm:text-base">
+                      Hol- & Bringservice in Hamburg
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-4 text-white/80">
+                    <CheckCircleIcon />
+                    <span className="text-sm sm:text-base">
+                      Individuelle Preisgestaltung
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-4 text-white/80">
+                    <CheckCircleIcon />
+                    <span className="text-sm sm:text-base">
+                      Spezialisiert auf PKW & Wohnmobile
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Wohnmobile Hinweis */}
+              <div className="bg-yellow-400/10 border border-yellow-400/20 rounded-2xl p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-2xl">🚐</span>
+                  <h4 className="text-white font-semibold text-lg">
+                    Wohnmobil-Spezialist
+                  </h4>
+                </div>
+                <p className="text-white/80 text-sm leading-relaxed">
+                  Umfassende Komplettaufbereitung für Wohnmobile und Wohnwagen -
+                  perfekt für Reisevorbereitung oder Verkauf.
+                </p>
+              </div>
+
+              {/* Leasing & Verkauf */}
+              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+                <h4 className="text-white font-semibold text-lg mb-3">
+                  💰 Mehr Werterhalt
+                </h4>
+                <p className="text-white/80 text-sm leading-relaxed">
+                  Ideal für Leasingrückgaben und Verkaufsvorbereitung - steigern
+                  Sie den Wiederverkaufswert Ihres Fahrzeugs.
+                </p>
+              </div>
             </div>
           </div>
         </motion.div>
