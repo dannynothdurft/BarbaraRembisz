@@ -114,7 +114,7 @@ export const metadata: Metadata = {
     // ✅ APPLE TOUCH ICON
     apple: [
       {
-        url: '/icons/apple-touch-icon.png',
+        url: '/icons/icon-180x190.png',
         sizes: '180x180',
         type: 'image/png',
       },
@@ -154,7 +154,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-  themeColor: '#000000',
+  themeColor: '#00152a',
 }
 
 export default function RootLayout({
