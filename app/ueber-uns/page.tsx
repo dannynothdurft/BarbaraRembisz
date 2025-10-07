@@ -1,7 +1,15 @@
-"use client"
+'use client'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { CheckCircle2, Award, Users, Target, MapPin, Phone, Clock } from 'lucide-react'
+import {
+  CheckCircle2,
+  Award,
+  Users,
+  Target,
+  MapPin,
+  Phone,
+  Clock,
+} from 'lucide-react'
 import Image from 'next/image'
 
 export default function AboutPage() {
@@ -52,21 +60,26 @@ export default function AboutPage() {
             >
               <div>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-                  Ihr Partner in <span className="text-yellow-400">Hamburg-Billstedt</span>
+                  Ihr Partner in{' '}
+                  <span className="text-yellow-400">Hamburg-Billstedt</span>
                 </h2>
                 <div className="w-20 h-1 bg-yellow-400 rounded-full mb-6" />
               </div>
-              
+
               <p className="text-lg text-gray-300 leading-relaxed">
-                Als Ihr zuverlässiger Aufbereiter in <span className="text-yellow-400 font-semibold">Hamburg-Billstedt</span> 
-                {' '}setzen wir auf handwerkliche Qualität und persönlichen Service. 
-                Kein Fließbandbetrieb, sondern maßgeschneiderte Lösungen für Ihr Fahrzeug.
+                Als Ihr zuverlässiger Aufbereiter in{' '}
+                <span className="text-yellow-400 font-semibold">
+                  Hamburg-Billstedt
+                </span>{' '}
+                setzen wir auf handwerkliche Qualität und persönlichen Service.
+                Kein Fließbandbetrieb, sondern maßgeschneiderte Lösungen für Ihr
+                Fahrzeug.
               </p>
-              
+
               <p className="text-gray-300 leading-relaxed">
-                Ob PKW, Wohnmobil oder Leasingrückgabe - wir nehmen uns die Zeit, 
-                die Ihr Fahrzeug für ein perfektes Ergebnis benötigt. 
-                Mit modernen Techniken und hochwertigen Pflegeprodukten.
+                Ob PKW, Wohnmobil oder Leasingrückgabe - wir nehmen uns die
+                Zeit, die Ihr Fahrzeug für ein perfektes Ergebnis benötigt. Mit
+                modernen Techniken und hochwertigen Pflegeprodukten.
               </p>
 
               {/* Location & Contact Info */}
@@ -99,7 +112,8 @@ export default function AboutPage() {
                       Individuelle Beratung
                     </h3>
                     <p className="text-gray-400">
-                      Persönliche Vor-Ort-Begutachtung für maßgeschneiderte Lösungen
+                      Persönliche Vor-Ort-Begutachtung für maßgeschneiderte
+                      Lösungen
                     </p>
                   </div>
                 </div>
@@ -142,7 +156,7 @@ export default function AboutPage() {
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-              
+
               {/* Image Badge */}
               <div className="absolute bottom-6 left-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4">
                 <p className="text-white text-sm font-semibold">
@@ -164,16 +178,21 @@ export default function AboutPage() {
               <div className="w-16 h-16 bg-yellow-400/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Award className="w-8 h-8 text-yellow-400" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Handwerkliche Qualität</h3>
+              <h3 className="text-xl font-bold text-white mb-4">
+                Handwerkliche Qualität
+              </h3>
               <p className="text-gray-400">
-                Präzise Arbeit mit modernsten Techniken und hochwertigen Produkten
+                Präzise Arbeit mit modernsten Techniken und hochwertigen
+                Produkten
               </p>
             </div>
             <div className="bg-gradient-to-br from-zinc-900 to-zinc-800 border border-white/10 p-8 rounded-2xl text-center hover:border-yellow-400/30 transition-all duration-500">
               <div className="w-16 h-16 bg-yellow-400/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Users className="w-8 h-8 text-yellow-400" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Persönlicher Service</h3>
+              <h3 className="text-xl font-bold text-white mb-4">
+                Persönlicher Service
+              </h3>
               <p className="text-gray-400">
                 Individuelle Beratung und transparente Kommunikation
               </p>
@@ -182,9 +201,12 @@ export default function AboutPage() {
               <div className="w-16 h-16 bg-yellow-400/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Target className="w-8 h-8 text-yellow-400" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Maßgeschneidert</h3>
+              <h3 className="text-xl font-bold text-white mb-4">
+                Maßgeschneidert
+              </h3>
               <p className="text-gray-400">
-                Individuelle Lösungen für PKW, Wohnmobile und gewerbliche Fahrzeuge
+                Individuelle Lösungen für PKW, Wohnmobile und gewerbliche
+                Fahrzeuge
               </p>
             </div>
           </motion.div>
@@ -199,21 +221,34 @@ export default function AboutPage() {
           >
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Unsere <span className="text-yellow-400">Spezialisierungen</span>
+                Unsere{' '}
+                <span className="text-yellow-400">Spezialisierungen</span>
               </h2>
               <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-                Vom Komplettservice bis zur Spezialbehandlung - wir haben für jedes Anliegen die passende Lösung
+                Vom Komplettservice bis zur Spezialbehandlung - wir haben für
+                jedes Anliegen die passende Lösung
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { icon: '🚗', title: 'PKW & SUV', desc: 'Komplettaufbereitung' },
+                {
+                  icon: '🚗',
+                  title: 'PKW & SUV',
+                  desc: 'Komplettaufbereitung',
+                },
                 { icon: '🏠', title: 'Wohnmobile', desc: 'Spezialbehandlung' },
                 { icon: '📋', title: 'Leasingrückgabe', desc: 'Vorbereitung' },
-                { icon: '✨', title: 'Verkaufsvorbereitung', desc: 'Werterhalt' }
+                {
+                  icon: '✨',
+                  title: 'Verkaufsvorbereitung',
+                  desc: 'Werterhalt',
+                },
               ].map((item, index) => (
-                <div key={index} className="bg-gradient-to-br from-zinc-900 to-zinc-800 border border-white/10 rounded-2xl p-6 text-center hover:border-yellow-400/30 transition-all duration-500">
+                <div
+                  key={index}
+                  className="bg-gradient-to-br from-zinc-900 to-zinc-800 border border-white/10 rounded-2xl p-6 text-center hover:border-yellow-400/30 transition-all duration-500"
+                >
                   <div className="text-3xl mb-3">{item.icon}</div>
                   <h3 className="text-white font-bold mb-2">{item.title}</h3>
                   <p className="text-gray-400 text-sm">{item.desc}</p>
@@ -234,8 +269,9 @@ export default function AboutPage() {
               Kostenlose Vor-Ort-Begutachtung
             </h2>
             <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-              Vereinbaren Sie einen unverbindlichen Beratungstermin für eine persönliche Einschätzung 
-              und ein maßgeschneidertes Angebot - transparent und fair.
+              Vereinbaren Sie einen unverbindlichen Beratungstermin für eine
+              persönliche Einschätzung und ein maßgeschneidertes Angebot -
+              transparent und fair.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/kontakt">

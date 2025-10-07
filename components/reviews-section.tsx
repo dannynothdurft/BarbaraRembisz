@@ -7,7 +7,8 @@ const reviews = [
     name: 'Markus B.',
     location: 'Hamburg-Billstedt',
     vehicle: 'VW Golf',
-    review: 'Mein Golf sah aus wie neu! Besonders die Innenreinigung war outstanding. Die Teppiche waren nach der Hundehaar-Entfernung wie frisch verlegt. Komme definitiv wieder!',
+    review:
+      'Mein Golf sah aus wie neu! Besonders die Innenreinigung war outstanding. Die Teppiche waren nach der Hundehaar-Entfernung wie frisch verlegt. Komme definitiv wieder!',
     rating: 5,
     service: 'Komplettaufbereitung',
   },
@@ -15,7 +16,8 @@ const reviews = [
     name: 'Sabine L.',
     location: 'Hamburg-Horn',
     vehicle: 'BMW 3er',
-    review: 'Endlich mal ein Profi, der sich Zeit nimmt. Die Lackpolitur hat tiefe Kratzer entfernt und der Glanz ist fantastisch. Sehr faire Preisgestaltung nach Vor-Ort-Begutachtung.',
+    review:
+      'Endlich mal ein Profi, der sich Zeit nimmt. Die Lackpolitur hat tiefe Kratzer entfernt und der Glanz ist fantastisch. Sehr faire Preisgestaltung nach Vor-Ort-Begutachtung.',
     rating: 5,
     service: 'Lackpolitur & Versiegelung',
   },
@@ -23,7 +25,8 @@ const reviews = [
     name: 'Thomas R.',
     location: 'Hamburg-Mümmelmannsberg',
     vehicle: 'Wohnmobil',
-    review: 'Unser Wohnmobil war nach dem Winter in einem traurigen Zustand. Die Komplettaufbereitung hat es gerettet - von der Küche bis zum Stoffverdeck. Absolute Empfehlung!',
+    review:
+      'Unser Wohnmobil war nach dem Winter in einem traurigen Zustand. Die Komplettaufbereitung hat es gerettet - von der Küche bis zum Stoffverdeck. Absolute Empfehlung!',
     rating: 5,
     service: 'Wohnmobil-Komplettpflege',
   },
@@ -31,7 +34,8 @@ const reviews = [
     name: 'Jennifer K.',
     location: 'Hamburg',
     vehicle: 'Audi A4 Leasing',
-    review: 'Perfekt für die Leasingrückgabe! Haben mir sogar Tipps gegeben, was wirklich notwendig ist. Keine versteckten Kosten und super Ergebnis. Danke!',
+    review:
+      'Perfekt für die Leasingrückgabe! Haben mir sogar Tipps gegeben, was wirklich notwendig ist. Keine versteckten Kosten und super Ergebnis. Danke!',
     rating: 5,
     service: 'Leasingrückgabe',
   },
@@ -39,7 +43,8 @@ const reviews = [
     name: 'Dieter S.',
     location: 'Hamburg-Billbrook',
     vehicle: 'Mercedes Vito',
-    review: 'Der Hol- und Bringservice hat mir den Tag gerettet. Mein Transporter war voller Baustaub - jetzt sieht er aus wie aus dem Showroom. Top Service!',
+    review:
+      'Der Hol- und Bringservice hat mir den Tag gerettet. Mein Transporter war voller Baustaub - jetzt sieht er aus wie aus dem Showroom. Top Service!',
     rating: 5,
     service: 'Innenreinigung & Holservice',
   },
@@ -47,7 +52,8 @@ const reviews = [
     name: 'Alexandra M.',
     location: 'Hamburg',
     vehicle: 'Opel Corsa',
-    review: 'Die Ozonbehandlung hat den unangenehmen Geruch nach einem verschütteten Milchkaffee komplett entfernt. Unglaublich! Freundlicher Service und schnelle Terminvergabe.',
+    review:
+      'Die Ozonbehandlung hat den unangenehmen Geruch nach einem verschütteten Milchkaffee komplett entfernt. Unglaublich! Freundlicher Service und schnelle Terminvergabe.',
     rating: 5,
     service: 'Geruchsentfernung',
   },
@@ -58,7 +64,7 @@ export function ReviewsSection() {
     <section className="relative py-16 sm:py-20 lg:py-24 bg-zinc-950 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#00152a]/10 to-zinc-900/50" />
-      
+
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
@@ -130,9 +136,13 @@ export function ReviewsSection() {
                         {review.name}
                       </h4>
                       <div className="flex flex-wrap gap-x-2">
-                        <p className="text-gray-400 text-xs">{review.location}</p>
+                        <p className="text-gray-400 text-xs">
+                          {review.location}
+                        </p>
                         <span className="text-gray-600">•</span>
-                        <p className="text-gray-400 text-xs">{review.vehicle}</p>
+                        <p className="text-gray-400 text-xs">
+                          {review.vehicle}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -153,20 +163,29 @@ export function ReviewsSection() {
           <div className="bg-zinc-900/50 border border-yellow-400/20 rounded-2xl p-8 max-w-2xl mx-auto">
             <div className="grid grid-cols-3 gap-8 mb-6">
               <div>
-                <div className="text-2xl font-bold text-yellow-400 mb-1">50+</div>
+                <div className="text-2xl font-bold text-yellow-400 mb-1">
+                  50+
+                </div>
                 <p className="text-gray-400 text-sm">Zufriedene Kunden</p>
               </div>
               <div>
-                <div className="text-2xl font-bold text-yellow-400 mb-1">4.9/5</div>
-                <p className="text-gray-400 text-sm">Durchschnittliche Bewertung</p>
+                <div className="text-2xl font-bold text-yellow-400 mb-1">
+                  4.9/5
+                </div>
+                <p className="text-gray-400 text-sm">
+                  Durchschnittliche Bewertung
+                </p>
               </div>
               <div>
-                <div className="text-2xl font-bold text-yellow-400 mb-1">100%</div>
+                <div className="text-2xl font-bold text-yellow-400 mb-1">
+                  100%
+                </div>
                 <p className="text-gray-400 text-sm">Weiterempfehlungsrate</p>
               </div>
             </div>
             <p className="text-gray-300 text-sm">
-              Vertrauen Sie auf die Erfahrung unserer zufriedenen Kunden aus Hamburg und Umgebung
+              Vertrauen Sie auf die Erfahrung unserer zufriedenen Kunden aus
+              Hamburg und Umgebung
             </p>
           </div>
         </motion.div>

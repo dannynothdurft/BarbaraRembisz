@@ -8,12 +8,11 @@ export function AboutSection() {
     <section className="relative py-16 sm:py-20 lg:py-24 bg-zinc-950 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#00152a]/20 to-zinc-900/50" />
-      
+
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          
           {/* Left side - Image mit Animation */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
@@ -27,10 +26,10 @@ export function AboutSection() {
               className="object-cover group-hover:scale-105 transition-transform duration-700"
               priority
             />
-            
+
             {/* Overlay mit Branding */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#00152a]/80 via-transparent to-transparent" />
-            
+
             {/* Echter Badge - ohne falsche Jahresangabe */}
             <div className="absolute top-6 left-6 bg-yellow-400 text-[#00152a] px-4 py-2 rounded-full font-semibold text-sm shadow-lg">
               Ihr lokaler Profi
@@ -48,30 +47,43 @@ export function AboutSection() {
             {/* Section Header */}
             <div className="space-y-2">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
-                Leidenschaft für <span className="text-yellow-400">perfekte Details</span> in Hamburg
+                Leidenschaft für{' '}
+                <span className="text-yellow-400">perfekte Details</span> in
+                Hamburg
               </h2>
               <div className="w-20 h-1 bg-yellow-400 rounded-full" />
             </div>
 
             {/* Haupttext - Ehrlich und authentisch */}
             <p className="text-lg text-gray-300 leading-relaxed">
-              Als Ihr zuverlässiger Partner für Fahrzeugaufbereitung in <span className="text-yellow-400 font-semibold">Hamburg-Billstedt</span> 
-              {' '}setzen wir auf handwerkliche Präzision und moderne Pflegetechniken. Jedes Fahrzeug erhält unsere volle Aufmerksamkeit.
+              Als Ihr zuverlässiger Partner für Fahrzeugaufbereitung in{' '}
+              <span className="text-yellow-400 font-semibold">
+                Hamburg-Billstedt
+              </span>{' '}
+              setzen wir auf handwerkliche Präzision und moderne
+              Pflegetechniken. Jedes Fahrzeug erhält unsere volle
+              Aufmerksamkeit.
             </p>
 
             {/* Was uns auszeichnet - Echte Werte */}
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <CheckCircle className="w-5 h-5 text-yellow-400 flex-shrink-0" />
-                <span className="text-gray-300">Persönliche Beratung und faire Preise</span>
+                <span className="text-gray-300">
+                  Persönliche Beratung und faire Preise
+                </span>
               </div>
               <div className="flex items-center gap-3">
                 <CheckCircle className="w-5 h-5 text-yellow-400 flex-shrink-0" />
-                <span className="text-gray-300">Hochwertige Pflegeprodukte für optimale Ergebnisse</span>
+                <span className="text-gray-300">
+                  Hochwertige Pflegeprodukte für optimale Ergebnisse
+                </span>
               </div>
               <div className="flex items-center gap-3">
                 <CheckCircle className="w-5 h-5 text-yellow-400 flex-shrink-0" />
-                <span className="text-gray-300">Spezialisiert auf PKW, Wohnmobile und Verkaufsvorbereitung</span>
+                <span className="text-gray-300">
+                  Spezialisiert auf PKW, Wohnmobile und Verkaufsvorbereitung
+                </span>
               </div>
             </div>
 

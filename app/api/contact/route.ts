@@ -3,13 +3,14 @@ import nodemailer from 'nodemailer'
 
 export async function POST(request: NextRequest) {
   try {
-      const { firstName, lastName, phone, email, vehicleType, services } = await request.json()
-      
+    const { firstName, lastName, phone, email, vehicleType, services } =
+      await request.json()
+
     // Validation
     if (!firstName || !lastName || !phone || !vehicleType || !services) {
       return NextResponse.json(
         { error: 'Bitte füllen Sie alle Pflichtfelder aus.' },
-        { status: 400 }
+        { status: 400 },
       )
     }
 
@@ -69,14 +70,18 @@ export async function POST(request: NextRequest) {
                   </span>
                 </div>
                 
-                ${email ? `
+                ${
+                  email
+                    ? `
                 <div class="field">
                   <span class="field-label">✉️ E-Mail</span>
                   <span class="field-value">
                     <a href="mailto:${email}" style="color: #00152a; text-decoration: none;">${email}</a>
                   </span>
                 </div>
-                ` : ''}
+                `
+                    : ''
+                }
                 
                 <div class="field">
                   <span class="field-label">🚙 Fahrzeugtyp</span>
@@ -171,7 +176,7 @@ export async function POST(request: NextRequest) {
 
     // Send emails
     await transporter.sendMail(ownerMailOptions)
-    
+
     // Only send confirmation email if customer provided an email address
     if (email) {
       await transporter.sendMail(customerMailOptions)
@@ -179,14 +184,13 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(
       { message: 'Nachricht erfolgreich gesendet!' },
-      { status: 200 }
+      { status: 200 },
     )
-
   } catch (error) {
     console.error('Fehler beim Senden der Email:', error)
     return NextResponse.json(
       { error: 'Interner Serverfehler. Bitte versuchen Sie es später erneut.' },
-      { status: 500 }
+      { status: 500 },
     )
   }
 }

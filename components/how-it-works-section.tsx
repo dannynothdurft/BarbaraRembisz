@@ -6,26 +6,46 @@ const steps = [
   {
     icon: Phone,
     title: 'Kontakt & Beratung',
-    description: 'Kontaktieren Sie uns telefonisch oder per WhatsApp für eine kostenlose Erstberatung. Wir besprechen Ihre Wünsche und vereinbaren einen Termin zur Vor-Ort-Begutachtung.',
-    details: ['Telefonische Beratung', 'Terminvereinbarung', 'Kostenlose Einschätzung']
+    description:
+      'Kontaktieren Sie uns telefonisch oder per WhatsApp für eine kostenlose Erstberatung. Wir besprechen Ihre Wünsche und vereinbaren einen Termin zur Vor-Ort-Begutachtung.',
+    details: [
+      'Telefonische Beratung',
+      'Terminvereinbarung',
+      'Kostenlose Einschätzung',
+    ],
   },
   {
     icon: Car,
     title: 'Vor-Ort Begutachtung',
-    description: 'Wir begutachten Ihr Fahrzeug persönlich und erstellen ein individuelles Angebot basierend auf Zustand und gewünschten Leistungen. Transparente Preise ohne Überraschungen.',
-    details: ['Persönliche Einschätzung', 'Individuelles Angebot', 'Transparente Preise']
+    description:
+      'Wir begutachten Ihr Fahrzeug persönlich und erstellen ein individuelles Angebot basierend auf Zustand und gewünschten Leistungen. Transparente Preise ohne Überraschungen.',
+    details: [
+      'Persönliche Einschätzung',
+      'Individuelles Angebot',
+      'Transparente Preise',
+    ],
   },
   {
     icon: Sparkles,
     title: 'Professionelle Aufbereitung',
-    description: 'Ihr Fahrzeug erhält unsere volle Aufmerksamkeit. Mit modernen Techniken und hochwertigen Produkten bringen wir es zurück in Top-Zustand.',
-    details: ['Handwerkliche Qualität', 'Hochwertige Produkte', 'Sorgfältige Ausführung']
+    description:
+      'Ihr Fahrzeug erhält unsere volle Aufmerksamkeit. Mit modernen Techniken und hochwertigen Produkten bringen wir es zurück in Top-Zustand.',
+    details: [
+      'Handwerkliche Qualität',
+      'Hochwertige Produkte',
+      'Sorgfältige Ausführung',
+    ],
   },
   {
     icon: CheckCircle,
     title: 'Abholung & Übergabe',
-    description: 'Bei der Übergabe zeigen wir Ihnen die Ergebnisse und sind für Rückfragen da. Optional mit Hol- und Bringservice in ganz Hamburg.',
-    details: ['Persönliche Übergabe', 'Qualitätskontrolle', 'Hol- & Bringservice']
+    description:
+      'Bei der Übergabe zeigen wir Ihnen die Ergebnisse und sind für Rückfragen da. Optional mit Hol- und Bringservice in ganz Hamburg.',
+    details: [
+      'Persönliche Übergabe',
+      'Qualitätskontrolle',
+      'Hol- & Bringservice',
+    ],
   },
 ]
 
@@ -34,7 +54,7 @@ export function HowItWorksSection() {
     <section className="relative py-16 sm:py-20 lg:py-24 bg-black overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#00152a]/10 to-black" />
-      
+
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
@@ -48,11 +68,12 @@ export function HowItWorksSection() {
             SO EINFACH GEHT'S
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-            Ihr Weg zum <span className="text-yellow-400">perfekten Ergebnis</span>
+            Ihr Weg zum{' '}
+            <span className="text-yellow-400">perfekten Ergebnis</span>
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Vom ersten Kontakt bis zur fertigen Aufbereitung - 
-            transparent und unkompliziert in Hamburg-Billstedt
+            Vom ersten Kontakt bis zur fertigen Aufbereitung - transparent und
+            unkompliziert in Hamburg-Billstedt
           </p>
         </motion.div>
 
@@ -69,7 +90,9 @@ export function HowItWorksSection() {
             >
               {/* Step Number */}
               <div className="absolute -top-4 -left-4 w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg">
-                <span className="text-black font-bold text-sm">{index + 1}</span>
+                <span className="text-black font-bold text-sm">
+                  {index + 1}
+                </span>
               </div>
 
               {/* Content */}
@@ -89,11 +112,14 @@ export function HowItWorksSection() {
                   <p className="text-gray-300 mb-4 leading-relaxed">
                     {step.description}
                   </p>
-                  
+
                   {/* Details List */}
                   <div className="space-y-2">
                     {step.details.map((detail, detailIndex) => (
-                      <div key={detailIndex} className="flex items-center gap-2">
+                      <div
+                        key={detailIndex}
+                        className="flex items-center gap-2"
+                      >
                         <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full" />
                         <span className="text-gray-400 text-sm">{detail}</span>
                       </div>
@@ -118,7 +144,7 @@ export function HowItWorksSection() {
               Starten Sie jetzt mit Ihrer Aufbereitung
             </h3>
             <p className="text-gray-300 mb-6">
-              Kontaktieren Sie uns für eine kostenlose Beratung und ein 
+              Kontaktieren Sie uns für eine kostenlose Beratung und ein
               unverbindliches Angebot - persönlich und transparent.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

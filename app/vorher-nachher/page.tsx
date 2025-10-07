@@ -1,7 +1,16 @@
 'use client'
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { MoveHorizontal, ZoomIn, X, ChevronLeft, ChevronRight, Car, Home, Sparkles } from 'lucide-react'
+import {
+  MoveHorizontal,
+  ZoomIn,
+  X,
+  ChevronLeft,
+  ChevronRight,
+  Car,
+  Home,
+  Sparkles,
+} from 'lucide-react'
 
 interface BeforeAfterSliderProps {
   beforeImage: string
@@ -16,92 +25,141 @@ export default function VorherNachherPage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null)
   const [filter, setFilter] = useState<string>('alle')
 
- const projects = [
-  {
-    before: '/images/before-after/IMG_2704.jpg',
-    after: '/images/before-after/IMG_2801.jpg',
-    title: 'Motorwäsche BMW E46',
-    description: 'Gründliche Motorraumreinigung und -pflege für optimale Kühlleistung und Werterhalt',
-    service: 'Motorwäsche',
-    vehicle: 'BMW E46 3er',
-    category: 'motor'
-  },
-  {
-    before: '/images/before-after/IMG_2712.jpg',
-    after: '/images/before-after/IMG_2773.jpg',
-    title: 'Außenaufbereitung mit Politur',
-    description: 'Komplette Außenwäsche, Lackpolitur und Carnauba-Wachs Versiegelung',
-    service: 'Außenpolitur & Versiegelung',
-    vehicle: 'BMW E46 3er',
-    category: 'lack'
-  },
-  {
-    before: '/images/before-after/IMG_2719.jpg',
-    after: '/images/before-after/IMG_2777.jpg',
-    title: 'Felgen & Radkästen Intensiv',
-    description: 'Tiefenreinigung der Felgen, Bremsstaubentfernung und Radkastenpflege',
-    service: 'Felgenreinigung',
-    vehicle: 'BMW E46 3er',
-    category: 'felgen'
-  },
-  {
-    before: '/images/before-after/IMG_2721.jpg',
-    after: '/images/before-after/IMG_2792.jpg',
-    title: 'Innenraum Komplettaufbereitung',
-    description: 'Gründliche Reinigung aller Oberflächen, Lederpflege und Teppichsanierung',
-    service: 'Innenraumaufbereitung',
-    vehicle: 'BMW E46 3er',
-    category: 'innen'
-  },
-  {
-    before: '/images/before-after/IMG_2734.jpg',
-    after: '/images/before-after/IMG_2780.jpg',
-    title: 'Lederpflege & Kunststoffaufbereitung',
-    description: 'Intensive Lederpflege der Sitze und Aufbereitung aller Kunststoffteile',
-    service: 'Leder- & Kunststoffpflege',
-    vehicle: 'BMW E46 3er',
-    category: 'innen'
-  },
-  {
-    before: '/images/before-after/IMG_2748.jpg',
-    after: '/images/before-after/IMG_2790.jpg',
-    title: 'Teppich & Polster Tiefenreinigung',
-    description: 'Professionelle Teppichreinigung und Textilpolster-Sanierung',
-    service: 'Teppich- & Polsterreinigung',
-    vehicle: 'BMW E46 3er',
-    category: 'innen'
-  },
-]
-
-  const categories = [
-    { key: 'alle', label: 'Alle Projekte', icon: Sparkles, count: projects.length },
-    { key: 'komplett', label: 'Komplett', icon: Car, count: projects.filter(p => p.category === 'komplett').length },
-    { key: 'innen', label: 'Innenraum', icon: Home, count: projects.filter(p => p.category === 'innen').length },
-    { key: 'lack', label: 'Lack', icon: Sparkles, count: projects.filter(p => p.category === 'lack').length },
-    { key: 'aussen', label: 'Außen', icon: Car, count: projects.filter(p => p.category === 'aussen').length },
-    { key: 'wohnmobil', label: 'Wohnmobile', icon: Home, count: projects.filter(p => p.category === 'wohnmobil').length },
-  { key: 'felgen', label: 'Felgen', icon: Car, count: projects.filter(p => p.category === 'felgen').length },
-  { key: 'motor', label: 'Motorwäsche', icon: Car, count: projects.filter(p => p.category === 'motor').length },
+  const projects = [
+    {
+      before: '/images/before-after/IMG_2704.jpg',
+      after: '/images/before-after/IMG_2801.jpg',
+      title: 'Motorwäsche BMW E46',
+      description:
+        'Gründliche Motorraumreinigung und -pflege für optimale Kühlleistung und Werterhalt',
+      service: 'Motorwäsche',
+      vehicle: 'BMW E46 3er',
+      category: 'motor',
+    },
+    {
+      before: '/images/before-after/IMG_2712.jpg',
+      after: '/images/before-after/IMG_2773.jpg',
+      title: 'Außenaufbereitung mit Politur',
+      description:
+        'Komplette Außenwäsche, Lackpolitur und Carnauba-Wachs Versiegelung',
+      service: 'Außenpolitur & Versiegelung',
+      vehicle: 'BMW E46 3er',
+      category: 'lack',
+    },
+    {
+      before: '/images/before-after/IMG_2719.jpg',
+      after: '/images/before-after/IMG_2777.jpg',
+      title: 'Felgen & Radkästen Intensiv',
+      description:
+        'Tiefenreinigung der Felgen, Bremsstaubentfernung und Radkastenpflege',
+      service: 'Felgenreinigung',
+      vehicle: 'BMW E46 3er',
+      category: 'felgen',
+    },
+    {
+      before: '/images/before-after/IMG_2721.jpg',
+      after: '/images/before-after/IMG_2792.jpg',
+      title: 'Innenraum Komplettaufbereitung',
+      description:
+        'Gründliche Reinigung aller Oberflächen, Lederpflege und Teppichsanierung',
+      service: 'Innenraumaufbereitung',
+      vehicle: 'BMW E46 3er',
+      category: 'innen',
+    },
+    {
+      before: '/images/before-after/IMG_2734.jpg',
+      after: '/images/before-after/IMG_2780.jpg',
+      title: 'Lederpflege & Kunststoffaufbereitung',
+      description:
+        'Intensive Lederpflege der Sitze und Aufbereitung aller Kunststoffteile',
+      service: 'Leder- & Kunststoffpflege',
+      vehicle: 'BMW E46 3er',
+      category: 'innen',
+    },
+    {
+      before: '/images/before-after/IMG_2748.jpg',
+      after: '/images/before-after/IMG_2790.jpg',
+      title: 'Teppich & Polster Tiefenreinigung',
+      description:
+        'Professionelle Teppichreinigung und Textilpolster-Sanierung',
+      service: 'Teppich- & Polsterreinigung',
+      vehicle: 'BMW E46 3er',
+      category: 'innen',
+    },
   ]
 
-  const filteredProjects = filter === 'alle' 
-    ? projects 
-    : projects.filter(project => project.category === filter)
+  const categories = [
+    {
+      key: 'alle',
+      label: 'Alle Projekte',
+      icon: Sparkles,
+      count: projects.length,
+    },
+    {
+      key: 'komplett',
+      label: 'Komplett',
+      icon: Car,
+      count: projects.filter((p) => p.category === 'komplett').length,
+    },
+    {
+      key: 'innen',
+      label: 'Innenraum',
+      icon: Home,
+      count: projects.filter((p) => p.category === 'innen').length,
+    },
+    {
+      key: 'lack',
+      label: 'Lack',
+      icon: Sparkles,
+      count: projects.filter((p) => p.category === 'lack').length,
+    },
+    {
+      key: 'aussen',
+      label: 'Außen',
+      icon: Car,
+      count: projects.filter((p) => p.category === 'aussen').length,
+    },
+    {
+      key: 'wohnmobil',
+      label: 'Wohnmobile',
+      icon: Home,
+      count: projects.filter((p) => p.category === 'wohnmobil').length,
+    },
+    {
+      key: 'felgen',
+      label: 'Felgen',
+      icon: Car,
+      count: projects.filter((p) => p.category === 'felgen').length,
+    },
+    {
+      key: 'motor',
+      label: 'Motorwäsche',
+      icon: Car,
+      count: projects.filter((p) => p.category === 'motor').length,
+    },
+  ]
+
+  const filteredProjects =
+    filter === 'alle'
+      ? projects
+      : projects.filter((project) => project.category === filter)
 
   const navigateImage = (direction: 'prev' | 'next') => {
     if (selectedImage === null) return
-    
+
     if (direction === 'next') {
       setSelectedImage((selectedImage + 1) % filteredProjects.length)
     } else {
-      setSelectedImage((selectedImage - 1 + filteredProjects.length) % filteredProjects.length)
+      setSelectedImage(
+        (selectedImage - 1 + filteredProjects.length) % filteredProjects.length,
+      )
     }
   }
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (selectedImage === null) return
-      
+
       if (e.key === 'Escape') setSelectedImage(null)
       if (e.key === 'ArrowRight') navigateImage('next')
       if (e.key === 'ArrowLeft') navigateImage('prev')
@@ -125,32 +183,41 @@ export default function VorherNachherPage() {
               <span className="text-yellow-400">Vorher</span> / Nachher
             </h1>
             <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-8">
-              Sehen Sie selbst, welchen Unterschied professionelle Aufbereitung macht. 
-              Von der Grundreinigung bis zur Premium-Politur - jedes Projekt ein Unikat.
+              Sehen Sie selbst, welchen Unterschied professionelle Aufbereitung
+              macht. Von der Grundreinigung bis zur Premium-Politur - jedes
+              Projekt ein Unikat.
             </p>
           </motion.div>
 
           {/* Stats */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto mb-12"
           >
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-yellow-400">{projects.length}+</div>
+              <div className="text-2xl md:text-3xl font-bold text-yellow-400">
+                {projects.length}+
+              </div>
               <div className="text-gray-400 text-sm">Projekte</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-yellow-400">100%</div>
+              <div className="text-2xl md:text-3xl font-bold text-yellow-400">
+                100%
+              </div>
               <div className="text-gray-400 text-sm">Zufriedenheit</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-yellow-400">50+</div>
+              <div className="text-2xl md:text-3xl font-bold text-yellow-400">
+                50+
+              </div>
               <div className="text-gray-400 text-sm">Kunden</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-yellow-400">5/5</div>
+              <div className="text-2xl md:text-3xl font-bold text-yellow-400">
+                5/5
+              </div>
               <div className="text-gray-400 text-sm">Bewertung</div>
             </div>
           </motion.div>
@@ -192,7 +259,11 @@ export default function VorherNachherPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 className="group cursor-pointer"
-                onClick={() => setSelectedImage(filteredProjects.findIndex(p => p === project))}
+                onClick={() =>
+                  setSelectedImage(
+                    filteredProjects.findIndex((p) => p === project),
+                  )
+                }
               >
                 <div className="relative bg-gradient-to-br from-zinc-900 to-zinc-800 border border-white/10 rounded-2xl overflow-hidden hover:border-yellow-400/30 transition-all duration-500 hover:scale-105">
                   <BeforeAfterSlider
@@ -203,7 +274,7 @@ export default function VorherNachherPage() {
                     service={project.service}
                     vehicle={project.vehicle}
                   />
-                  
+
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
                     <div className="opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
@@ -215,8 +286,12 @@ export default function VorherNachherPage() {
 
                   {/* Project Info */}
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4">
-                    <h3 className="text-white font-bold text-sm mb-1">{project.title}</h3>
-                    <p className="text-gray-300 text-xs">{project.vehicle} • {project.service}</p>
+                    <h3 className="text-white font-bold text-sm mb-1">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-300 text-xs">
+                      {project.vehicle} • {project.service}
+                    </p>
                   </div>
                 </div>
               </motion.div>
@@ -234,7 +309,10 @@ export default function VorherNachherPage() {
               className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
               onClick={() => setSelectedImage(null)}
             >
-              <div className="relative max-w-6xl max-h-[90vh] w-full" onClick={e => e.stopPropagation()}>
+              <div
+                className="relative max-w-6xl max-h-[90vh] w-full"
+                onClick={(e) => e.stopPropagation()}
+              >
                 {/* Close Button */}
                 <button
                   onClick={() => setSelectedImage(null)}
@@ -276,7 +354,8 @@ export default function VorherNachherPage() {
                     {filteredProjects[selectedImage].title}
                   </h3>
                   <p className="text-gray-300">
-                    {filteredProjects[selectedImage].vehicle} • {filteredProjects[selectedImage].service}
+                    {filteredProjects[selectedImage].vehicle} •{' '}
+                    {filteredProjects[selectedImage].service}
                   </p>
                   <p className="text-gray-400 text-sm mt-2">
                     {filteredProjects[selectedImage].description}

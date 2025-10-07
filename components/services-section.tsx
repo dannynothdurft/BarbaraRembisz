@@ -7,39 +7,75 @@ const services = [
   {
     icon: Sparkles,
     title: 'Komplettaufbereitung Innen & Außen',
-    description: 'Umfassende Reinigung und Pflege von Innenraum und Außenbereich für ein rundum strahlendes Ergebnis.',
-    features: ['Handwäsche', 'Innenreinigung', 'Felgenpflege', 'Scheibenreinigung']
+    description:
+      'Umfassende Reinigung und Pflege von Innenraum und Außenbereich für ein rundum strahlendes Ergebnis.',
+    features: [
+      'Handwäsche',
+      'Innenreinigung',
+      'Felgenpflege',
+      'Scheibenreinigung',
+    ],
   },
   {
     icon: Shield,
     title: 'Lackschutz & Versiegelung',
-    description: 'Professionelle Politur und Carnauba-Wachs-Versiegelung für langanhaltenden Glanz und Schutz.',
-    features: ['Lackpolitur', 'Carnauba-Wachs', 'Kratzerentfernung', 'Langzeitschutz']
+    description:
+      'Professionelle Politur und Carnauba-Wachs-Versiegelung für langanhaltenden Glanz und Schutz.',
+    features: [
+      'Lackpolitur',
+      'Carnauba-Wachs',
+      'Kratzerentfernung',
+      'Langzeitschutz',
+    ],
   },
   {
     icon: Home,
     title: 'Innenraum & Polster',
-    description: 'Gründliche Reinigung und Pflege von Sitzen, Teppichen und allen Oberflächen im Innenraum.',
-    features: ['Teppichreinigung', 'Lederpflege', 'Kunststoffaufbereitung', 'Geruchsentfernung']
+    description:
+      'Gründliche Reinigung und Pflege von Sitzen, Teppichen und allen Oberflächen im Innenraum.',
+    features: [
+      'Teppichreinigung',
+      'Lederpflege',
+      'Kunststoffaufbereitung',
+      'Geruchsentfernung',
+    ],
   },
   {
     icon: Car,
     title: 'Wohnmobil & Wohnwagen',
-    description: 'Spezielle Komplettpflege für Wohnmobile - vom Fahrerhaus bis zum Wohnbereich.',
-    features: ['Außenwäsche', 'Innenbereich', 'Stoffverdeck-Reinigung', 'Küchenbereich']
+    description:
+      'Spezielle Komplettpflege für Wohnmobile - vom Fahrerhaus bis zum Wohnbereich.',
+    features: [
+      'Außenwäsche',
+      'Innenbereich',
+      'Stoffverdeck-Reinigung',
+      'Küchenbereich',
+    ],
   },
   {
     icon: Brush,
     title: 'Zusatzleistungen',
-    description: 'Individuelle Extras für besondere Anforderungen und Problemfälle.',
-    features: ['Ozonbehandlung', 'Hundehaarentfernung', 'Nikotinentfernung', 'Motorwäsche']
+    description:
+      'Individuelle Extras für besondere Anforderungen und Problemfälle.',
+    features: [
+      'Ozonbehandlung',
+      'Hundehaarentfernung',
+      'Nikotinentfernung',
+      'Motorwäsche',
+    ],
   },
   {
     icon: Droplets,
     title: 'Hol- & Bringservice',
-    description: 'Bequemer Abholservice in Hamburg - wir kümmern uns um den Transport Ihres Fahrzeugs.',
-    features: ['Kostenlose Beratung', 'Terminvereinbarung', 'Persönliche Übergabe', 'Hamburg-weit']
-  }
+    description:
+      'Bequemer Abholservice in Hamburg - wir kümmern uns um den Transport Ihres Fahrzeugs.',
+    features: [
+      'Kostenlose Beratung',
+      'Terminvereinbarung',
+      'Persönliche Übergabe',
+      'Hamburg-weit',
+    ],
+  },
 ]
 
 export function ServicesSection() {
@@ -47,10 +83,10 @@ export function ServicesSection() {
     <section className="relative py-16 sm:py-20 lg:py-24 bg-black overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#00152a]/10 to-black" />
-      
+
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -65,8 +101,9 @@ export function ServicesSection() {
             <span className="text-yellow-400">in Hamburg-Billstedt</span>
           </h2>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Vom gründlichen Innenraum-Service bis zur hochwertigen Lackversiegelung - 
-            wir bieten maßgeschneiderte Lösungen für PKW, Wohnmobile und gewerbliche Fahrzeuge.
+            Vom gründlichen Innenraum-Service bis zur hochwertigen
+            Lackversiegelung - wir bieten maßgeschneiderte Lösungen für PKW,
+            Wohnmobile und gewerbliche Fahrzeuge.
           </p>
         </motion.div>
 
@@ -93,7 +130,7 @@ export function ServicesSection() {
                   <h3 className="text-xl font-bold text-white mb-4 group-hover:text-yellow-400 transition-colors">
                     {service.title}
                   </h3>
-                  
+
                   <p className="text-gray-300 mb-6 leading-relaxed">
                     {service.description}
                   </p>
@@ -101,7 +138,10 @@ export function ServicesSection() {
                   {/* Features List */}
                   <div className="space-y-2 mb-6">
                     {service.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center gap-2">
+                      <div
+                        key={featureIndex}
+                        className="flex items-center gap-2"
+                      >
                         <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full" />
                         <span className="text-gray-400 text-sm">{feature}</span>
                       </div>
@@ -109,18 +149,23 @@ export function ServicesSection() {
                   </div>
 
                   {/* CTA */}
-                  <Link 
-                    href="/leistungen" 
+                  <Link
+                    href="/leistungen"
                     className="inline-flex items-center text-yellow-400 hover:text-yellow-300 font-semibold text-sm transition-colors group/btn"
                   >
                     Details ansehen
-                    <svg 
-                      className="w-4 h-4 ml-2 transform group-hover/btn:translate-x-1 transition-transform" 
-                      fill="none" 
-                      stroke="currentColor" 
+                    <svg
+                      className="w-4 h-4 ml-2 transform group-hover/btn:translate-x-1 transition-transform"
+                      fill="none"
+                      stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
                     </svg>
                   </Link>
                 </CardContent>
@@ -142,8 +187,9 @@ export function ServicesSection() {
               Individuelle Beratung vor Ort
             </h3>
             <p className="text-gray-300 mb-6">
-              Jedes Fahrzeug ist einzigartig. Vereinbaren Sie einen kostenlosen 
-              Beratungstermin für eine persönliche Einschätzung und ein maßgeschneidertes Angebot.
+              Jedes Fahrzeug ist einzigartig. Vereinbaren Sie einen kostenlosen
+              Beratungstermin für eine persönliche Einschätzung und ein
+              maßgeschneidertes Angebot.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -14,16 +14,20 @@ export default function ContactPage() {
     phone: '',
     email: '',
     vehicleType: '',
-    services: ''
+    services: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [submitStatus, setSubmitStatus] = useState<
+    'idle' | 'success' | 'error'
+  >('idle')
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }))
   }
 
@@ -41,7 +45,7 @@ export default function ContactPage() {
         phone: '',
         email: '',
         vehicleType: '',
-        services: ''
+        services: '',
       })
     } catch (error) {
       console.error('Fehler beim Senden des Formulars:', error)
@@ -67,7 +71,8 @@ export default function ContactPage() {
               Kontakt & <span className="text-yellow-400">Termin</span>
             </h1>
             <p className="text-xl text-gray-300 leading-relaxed mb-8">
-              Vereinbaren Sie eine kostenlose Vor-Ort-Begutachtung in Hamburg-Billstedt
+              Vereinbaren Sie eine kostenlose Vor-Ort-Begutachtung in
+              Hamburg-Billstedt
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="tel:+4917662912411">
@@ -76,8 +81,15 @@ export default function ContactPage() {
                   Direkt anrufen
                 </Button>
               </a>
-              <a href="https://wa.me/4917662912411" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-[#00152a] font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105">
+              <a
+                href="https://wa.me/4917662912411"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  variant="outline"
+                  className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-[#00152a] font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105"
+                >
                   <MessageCircle className="w-5 h-5 mr-2" />
                   WhatsApp
                 </Button>
@@ -112,25 +124,28 @@ export default function ContactPage() {
                   </p>
                 </div>
               </div>
-              
+
               <p className="text-gray-400 mb-8">
-                Beschreiben Sie Ihr Fahrzeug und gewünschte Leistungen. 
-                Wir melden uns innerhalb von 24 Stunden für eine persönliche Beratung.
+                Beschreiben Sie Ihr Fahrzeug und gewünschte Leistungen. Wir
+                melden uns innerhalb von 24 Stunden für eine persönliche
+                Beratung.
               </p>
 
               {/* Status Messages */}
               {submitStatus === 'success' && (
                 <div className="bg-green-500/10 border border-green-500/20 text-green-400 p-4 rounded-lg mb-6">
-                  ✅ Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns schnellstmöglich bei Ihnen.
+                  ✅ Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet. Wir
+                  melden uns schnellstmöglich bei Ihnen.
                 </div>
               )}
 
               {submitStatus === 'error' && (
                 <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-lg mb-6">
-                  ❌ Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an.
+                  ❌ Es ist ein Fehler aufgetreten. Bitte versuchen Sie es
+                  erneut oder rufen Sie uns direkt an.
                 </div>
               )}
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -164,7 +179,7 @@ export default function ContactPage() {
                     />
                   </div>
                 </div>
-                
+
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-white text-sm font-medium mb-2">
@@ -229,7 +244,7 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <Button 
+                <Button
                   type="submit"
                   disabled={isSubmitting}
                   className="w-full bg-yellow-400 hover:bg-yellow-300 text-[#00152a] font-semibold rounded-full py-6 text-lg transition-all duration-300 hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
@@ -243,7 +258,7 @@ export default function ContactPage() {
                     'Kostenlose Beratung anfragen'
                   )}
                 </Button>
-                
+
                 <p className="text-gray-400 text-sm text-center">
                   * Pflichtfelder. Wir behandeln Ihre Daten vertraulich.
                 </p>
@@ -263,7 +278,8 @@ export default function ContactPage() {
                   Ihr Ansprechpartner in Hamburg
                 </h2>
                 <p className="text-gray-400 text-lg">
-                  Persönliche Beratung und transparente Preise nach Vor-Ort-Begutachtung
+                  Persönliche Beratung und transparente Preise nach
+                  Vor-Ort-Begutachtung
                 </p>
               </div>
 
@@ -275,7 +291,8 @@ export default function ContactPage() {
                   <div>
                     <h3 className="text-white font-semibold mb-2">Standort</h3>
                     <p className="text-gray-400">
-                      Am Schiffbeker Berg 20<br />
+                      Am Schiffbeker Berg 20
+                      <br />
                       22111 Hamburg-Billstedt
                     </p>
                     <p className="text-yellow-400 text-sm mt-2">
@@ -289,7 +306,9 @@ export default function ContactPage() {
                     <Phone className="w-6 h-6 text-yellow-400" />
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold mb-2">Telefon & WhatsApp</h3>
+                    <h3 className="text-white font-semibold mb-2">
+                      Telefon & WhatsApp
+                    </h3>
                     <div className="space-y-2">
                       <p className="text-gray-400">
                         <a
@@ -328,7 +347,9 @@ export default function ContactPage() {
                     <Clock className="w-6 h-6 text-yellow-400" />
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold mb-2">Öffnungszeiten</h3>
+                    <h3 className="text-white font-semibold mb-2">
+                      Öffnungszeiten
+                    </h3>
                     <div className="text-gray-400 space-y-1">
                       <p className="flex justify-between">
                         <span>Montag - Freitag:</span>
