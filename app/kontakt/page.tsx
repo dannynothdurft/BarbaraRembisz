@@ -4,8 +4,53 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { motion } from 'framer-motion'
 import { MapPin, Phone, Mail, Clock, Car, MessageCircle } from 'lucide-react'
+import { useState } from 'react'
+import axios from 'axios'
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    phone: '',
+    email: '',
+    vehicleType: '',
+    services: ''
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+
+    try {
+      await axios.post('/api/contact', formData)
+      setSubmitStatus('success')
+      setFormData({
+        firstName: '',
+        lastName: '',
+        phone: '',
+        email: '',
+        vehicleType: '',
+        services: ''
+      })
+    } catch (error) {
+      console.error('Fehler beim Senden des Formulars:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
     <div className="min-h-screen bg-black">
       {/* Hero Section */}
@@ -72,8 +117,21 @@ export default function ContactPage() {
                 Beschreiben Sie Ihr Fahrzeug und gewünschte Leistungen. 
                 Wir melden uns innerhalb von 24 Stunden für eine persönliche Beratung.
               </p>
+
+              {/* Status Messages */}
+              {submitStatus === 'success' && (
+                <div className="bg-green-500/10 border border-green-500/20 text-green-400 p-4 rounded-lg mb-6">
+                  ✅ Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns schnellstmöglich bei Ihnen.
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-lg mb-6">
+                  ❌ Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an.
+                </div>
+              )}
               
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-white text-sm font-medium mb-2">
@@ -81,9 +139,13 @@ export default function ContactPage() {
                     </label>
                     <Input
                       type="text"
+                      name="firstName"
                       placeholder="Ihr Vorname"
                       className="bg-black border-white/20 text-white placeholder:text-gray-500 focus:border-yellow-400"
                       required
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      disabled={isSubmitting}
                     />
                   </div>
                   <div>
@@ -92,9 +154,13 @@ export default function ContactPage() {
                     </label>
                     <Input
                       type="text"
+                      name="lastName"
                       placeholder="Ihr Nachname"
                       className="bg-black border-white/20 text-white placeholder:text-gray-500 focus:border-yellow-400"
                       required
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      disabled={isSubmitting}
                     />
                   </div>
                 </div>
@@ -106,9 +172,13 @@ export default function ContactPage() {
                     </label>
                     <Input
                       type="tel"
+                      name="phone"
                       placeholder="+49 176 62912411"
                       className="bg-black border-white/20 text-white placeholder:text-gray-500 focus:border-yellow-400"
                       required
+                      value={formData.phone}
+                      onChange={handleChange}
+                      disabled={isSubmitting}
                     />
                   </div>
                   <div>
@@ -117,8 +187,12 @@ export default function ContactPage() {
                     </label>
                     <Input
                       type="email"
+                      name="email"
                       placeholder="ihre.email@beispiel.de"
                       className="bg-black border-white/20 text-white placeholder:text-gray-500 focus:border-yellow-400"
+                      value={formData.email}
+                      onChange={handleChange}
+                      disabled={isSubmitting}
                     />
                   </div>
                 </div>
@@ -129,9 +203,13 @@ export default function ContactPage() {
                   </label>
                   <Input
                     type="text"
+                    name="vehicleType"
                     placeholder="z.B. BMW 3er, VW Golf, Wohnmobil..."
                     className="bg-black border-white/20 text-white placeholder:text-gray-500 focus:border-yellow-400"
                     required
+                    value={formData.vehicleType}
+                    onChange={handleChange}
+                    disabled={isSubmitting}
                   />
                 </div>
 
@@ -140,18 +218,30 @@ export default function ContactPage() {
                     Gewünschte Leistungen *
                   </label>
                   <Textarea
+                    name="services"
                     placeholder="z.B. Komplettaufbereitung, Lackpolitur, Innenreinigung, Motorwäsche, Geruchsentfernung..."
                     rows={4}
                     className="bg-black border-white/20 text-white placeholder:text-gray-500 resize-none focus:border-yellow-400"
                     required
+                    value={formData.services}
+                    onChange={handleChange}
+                    disabled={isSubmitting}
                   />
                 </div>
 
                 <Button 
                   type="submit"
-                  className="w-full bg-yellow-400 hover:bg-yellow-300 text-[#00152a] font-semibold rounded-full py-6 text-lg transition-all duration-300 hover:scale-105 shadow-lg"
+                  disabled={isSubmitting}
+                  className="w-full bg-yellow-400 hover:bg-yellow-300 text-[#00152a] font-semibold rounded-full py-6 text-lg transition-all duration-300 hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
-                  Kostenlose Beratung anfragen
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-5 h-5 border-2 border-[#00152a] border-t-transparent rounded-full animate-spin mr-2" />
+                      Wird gesendet...
+                    </>
+                  ) : (
+                    'Kostenlose Beratung anfragen'
+                  )}
                 </Button>
                 
                 <p className="text-gray-400 text-sm text-center">
