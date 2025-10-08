@@ -114,7 +114,7 @@ export const metadata: Metadata = {
     // ✅ APPLE TOUCH ICON
     apple: [
       {
-        url: '/icons/icon-180x190.png',
+        url: '/icons/icon-180x180.png',
         sizes: '180x180',
         type: 'image/png',
       },
