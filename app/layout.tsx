@@ -46,12 +46,12 @@ export const metadata: Metadata = {
   generator: 'Next.js',
   applicationName: 'Barbara Rembisz Autoaufbereitung',
   metadataBase: new URL('https://www.autoaufbereitung-rembisz.de'),
-  alternates: {
-    canonical: 'https://www.autoaufbereitung-rembisz.de',
-    languages: {
-      de: 'https://www.autoaufbereitung-rembisz.de',
-    },
-  },
+  // alternates: {
+  //   canonical: 'https://www.autoaufbereitung-rembisz.de',
+  //   languages: {
+  //     de: 'https://www.autoaufbereitung-rembisz.de',
+  //   },
+  // },
   openGraph: {
     type: 'website',
     locale: 'de_DE',
