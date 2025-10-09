@@ -81,10 +81,7 @@ const ImpressumPage = () => {
                 Umsatzsteuergesetz:
               </p>
               <div className="bg-white/5 rounded-lg p-4">
-                <p className="font-semibold text-white">Wird beantragt</p>
-                <p className="text-sm text-gray-400 mt-1">
-                  (Kleinunternehmer nach § 19 UStG)
-                </p>
+                <p className="font-semibold text-white">43/196/03617</p>
               </div>
             </div>
           </section>
