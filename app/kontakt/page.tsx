@@ -101,7 +101,7 @@ export default function ContactPage() {
 
       {/* Contact Section */}
       <section className="py-20">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-2 sm:px-4">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Contact Form */}
             <motion.div
@@ -109,7 +109,7 @@ export default function ContactPage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-br from-zinc-900 to-zinc-800 p-8 md:p-12 rounded-2xl border border-white/10"
+              className="bg-gradient-to-br from-zinc-900 to-zinc-800 p-4 sm:p-8 md:p-12 rounded-2xl border border-white/10"
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 bg-yellow-400/10 rounded-xl flex items-center justify-center">

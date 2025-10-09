@@ -218,15 +218,15 @@ export default function ServicesPage() {
                   <div
                     className={`space-y-6 ${isEven ? '' : 'lg:col-start-2'}`}
                   >
-                    <div className="flex items-center gap-4">
+                    <div className="flex flex-col sm:flex-row items-center gap-4">
                       <div className="w-16 h-16 bg-yellow-400/10 rounded-xl flex items-center justify-center group-hover:bg-yellow-400/20 transition-colors">
                         <Icon className="w-8 h-8 text-yellow-400" />
                       </div>
                       <div className="flex-1">
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 text-center sm:text-left">
                           {service.title}
                         </h2>
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
                           {service.details.map((detail, idx) => (
                             <span
                               key={idx}
@@ -255,7 +255,7 @@ export default function ServicesPage() {
                       ))}
                     </ul>
 
-                    <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                    <div className="flex flex-col sm:flex-row gap-5 items-center justify-between pt-4 border-t border-white/10">
                       <div className="text-yellow-400 font-semibold text-sm">
                         Individuelles Angebot nach Begutachtung
                       </div>
