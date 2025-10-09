@@ -20,8 +20,9 @@ export function Footer() {
               />
             </Link>
             <p className="text-gray-400 mb-4 leading-relaxed text-sm">
-              Ihr Profi für professionelle Fahrzeugaufbereitung in Hamburg-Billstedt. 
-              Von der Grundreinigung bis zur Premium-Politur - für makellose Ergebnisse.
+              Ihr Profi für professionelle Fahrzeugaufbereitung in
+              Hamburg-Billstedt. Von der Grundreinigung bis zur Premium-Politur
+              - für makellose Ergebnisse.
             </p>
             <div className="flex gap-4">
               <a
@@ -176,8 +177,8 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-yellow-400 flex-shrink-0" />
-                <a 
-                  href="tel:+4917662912411" 
+                <a
+                  href="tel:+4917662912411"
                   className="hover:text-yellow-400 transition-colors"
                 >
                   +49 176 629 124 11
@@ -185,8 +186,8 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-yellow-400 flex-shrink-0" />
-                <a 
-                  href="mailto:info@autoaufbereitung-rembisz.de" 
+                <a
+                  href="mailto:info@autoaufbereitung-rembisz.de"
                   className="hover:text-yellow-400 transition-colors break-all"
                 >
                   info@autoaufbereitung-rembisz.de
@@ -194,8 +195,8 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3 mt-4">
                 <MessageCircle className="w-4 h-4 text-yellow-400 flex-shrink-0" />
-                <a 
-                  href="https://wa.me/4917662912411" 
+                <a
+                  href="https://wa.me/4917662912411"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-yellow-400 transition-colors"
@@ -211,7 +212,8 @@ export function Footer() {
         <div className="border-t border-white/10 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm text-center md:text-left">
-              © {new Date().getFullYear()} Autoaufbereitung Rembisz. Professionelle Fahrzeugaufbereitung in Hamburg-Billstedt.
+              © {new Date().getFullYear()} Autoaufbereitung Rembisz.
+              Professionelle Fahrzeugaufbereitung in Hamburg-Billstedt.
             </p>
             <div className="flex gap-6 text-sm">
               <Link
