@@ -2,6 +2,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { Mail, Phone, MapPin, Code, Shield } from 'lucide-react'
+import { ServiceCard } from '@/module/service-card/ServiceCard'
 
 const ImpressumPage = () => {
   return (
@@ -178,46 +179,24 @@ const ImpressumPage = () => {
           </section>
 
           {/* Webdesign & Entwicklung */}
-          <section className="bg-gradient-to-br from-[#00152a] to-zinc-900 border border-yellow-400/20 rounded-2xl p-8">
-            <div className="flex items-start gap-4 mb-6">
-              <div className="p-3 bg-yellow-400/10 rounded-xl">
-                <Code className="w-6 h-6 text-yellow-400" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold text-white mb-2">
-                  Webdesign & Entwicklung
-                </h2>
-                <p className="text-gray-300">
-                  Professionelle Webentwicklung mit modernsten Technologien
-                </p>
-              </div>
-            </div>
-
-            <div className="border-t border-white/10 pt-6">
-              <p className="text-gray-300 mb-4">
-                Diese Webseite wurde konzipiert, gestaltet und entwickelt von:
-              </p>
-              <div className="bg-white/5 rounded-xl p-6 mb-6">
-                <p className="text-2xl font-bold text-white mb-2">DevDanny</p>
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  Spezialisiert auf moderne Webentwicklung, responsive Design
-                  und benutzerfreundliche Lösungen für Unternehmen jeder Größe.
-                </p>
-              </div>
-
-              <Link
-                href="https://www.devdanny.de"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-yellow-400 hover:text-yellow-300 transition-colors font-semibold"
-              >
-                www.DevDanny.de
-              </Link>
-            </div>
-          </section>
+          <ServiceCard
+            config={{
+              businessType: 'client-work',
+              service: {
+                technologies: [
+                  'Next.js',
+                  'TypeScript',
+                  'Axios',
+                  'Nodemailer',
+                  'Tailwind',
+                  'GitHub & Vercel',
+                ],
+              },
+            }}
+          />
 
           {/* Aktualität */}
-          <section className="bg-gradient-to-br from-zinc-900 to-zinc-800 border border-white/10 rounded-2xl p-6 text-center">
+          <section className="bg-gradient-to-br from-zinc-900 to-zinc-800 border border-white/10 rounded-2xl p-6 text-center mt-8">
             <p className="text-gray-300 text-sm">
               <span className="text-yellow-400 font-semibold">Stand:</span>{' '}
               {new Date().getFullYear()}
